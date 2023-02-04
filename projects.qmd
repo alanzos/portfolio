@@ -1,0 +1,40 @@
+---
+title: "Projects"
+---
+
+## Why I stopped using Precision and Accuracy for binary classification
+
+::: columns
+::: {.column width="55%"}
+Precision and Accuracy are the most common performance metrics when dealing with binary classification problems. Doing some research, I found out that they are not robust enough for frequent scenarios in biomedical data science. Find out why, and what is the alternative metric on my [LinkedIn article](https://www.linkedin.com/pulse/why-i-stopped-using-precision-accuracy-binary-andr%C3%A9s-lanz%C3%B3s/){target=_blank}. All the code available at this [GitHub repository](https://github.com/alanzos/performance_metrics_for_binary_classification){target=_blank}
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+![](jpg/precision_accuracy.jpg)
+:::
+:::
+
+## Project 2
+
+::: columns
+
+
+::: {.column width="40%"}
+![](images/Sales_Dashboard_shiny_flex.jpg)
+:::
+
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+
+Diversification is essential in an investment portfolio. That is why I developed a [Shiny app](https://andreslanzos.shinyapps.io/microwd_diversification/){target=_blank} to explore the diversification of my investments in [Microwd](https://www.microwd.es/en/){target=_blank}. All the code available at this [GitHub repository](https://github.com/alanzos/microwd_diversification){target=_blank}
+
+:::
+
+
+:::

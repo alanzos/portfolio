@@ -1,0 +1,38 @@
+---
+title: "Andrés Lanzós"
+subtitle: "Biomedical Data Scientist"
+image: jpg/photo.jpg
+about:
+  id: heading
+  template: jolla
+  image-width: 20em
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/andreslanzos/
+    - icon: github
+      text: GitHub
+      href: https://github.com/alanzos
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/andreslanzos
+    - icon: google
+      text: Google Scholar
+      href: https://scholar.google.com.sg/citations?user=h1VE1i8AAAAJ&hl=en
+---
+
+::: {#heading}
+:::
+
+Biomedical Data Science is the perfect combination of three of my passions: statistics, biology, and programming. During my career, I have used computational algorithms and statistical models to answer biological questions.
+
+My academic research focused on the field of cancer genomics, specifically in the detection of long non-coding RNAs (genes that do not encode proteins) mutated in cancer patients. Thanks to my academic training and research over six years at the [GOLD lab](https://www.gold-lab.org/){target="_blank"}, I acquired knowledge in cancer biology, molecular genetics, gene networks, system biology, evolutionary biology, and molecular simulations. Additionally, I also obtained extended experience in statistical modeling, data analysis, and programming (Python, Perl, R, and Unix).
+
+I transitioned to the private sector as Data Scientist at [Biognosys](https://www.biognosys.com){target="_blank"}, where I was introduced to proteomics. During this phase, I applied my technical expertise to the generation and mining of big proteomic data, batch effect correction, and visualization of results for scientific and business stakeholders. One example of my projects at Biognosys is the [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/){target="_blank"}.
+
+I'm currently a Data Scientist at [Idorsia](https://www.idorsia.com/){target="_blank"}, where I focus on target and biomarker discovery by making use of multi-omics and clinical data.
+
+Other interests of mine are investments, trading, economy, technology, entrepreneurship, sustainability, survival, bouldering, and fitness.
+
+I am always interested in projects related to the topics described above, and I am open to insightful conversations. Feel free to contact me on [Linkedin](https://www.linkedin.com/in/andreslanzos/){target="_blank"} for opportunities and networking.

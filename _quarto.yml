@@ -1,0 +1,33 @@
+project:
+  type: website
+website:
+  title: "Andrés Lanzós"
+  favicon: "jpg/photo.jpg"
+  reader-mode: false
+  search: 
+    location: navbar
+    type: overlay
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: resume.qmd
+        text: Resume
+  page-footer:
+    left: |
+     [Send me an email](mailto:andreslanzos-portfolio@runbox.com){target="_blank"}
+    right: |
+      [GitHub repository](https://github.com/alanzos/portfolio){target="_blank"}
+    background: "primary"
+format:
+  html:
+    theme:
+      dark: darkly
+      light: cosmo
+    css: styles.css
+    link-external-newwindow: true
+    link-external-icon: true
+editor: visual

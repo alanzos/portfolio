@@ -1,0 +1,7 @@
+---
+title: "Resume"
+---
+
+<iframe width="800" height="800" src="pdf/resume.pdf">
+
+</iframe>
