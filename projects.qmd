@@ -31,3 +31,18 @@ Precision and Accuracy are the most common performance metrics when dealing with
 Diversification is essential in an investment portfolio. That is why I developed a [Shiny app](https://andreslanzos.shinyapps.io/microwd_diversification/){target="_blank"} to explore the diversification of my investments in [Microwd](https://www.microwd.es/en/){target="_blank"}. All the code is available at this [GitHub repository](https://github.com/alanzos/microwd_diversification){target="_blank"}.
 :::
 :::
+
+## Shihy app to trace your blood/urine test
+
+::: columns
+::: {.column width="55%"}
+Every time I have done a blood or urine test, it was difficult to compare to previous values. That is why I collected my results from the last +5 years and created [VitaTracer](https://andreslanzos.shinyapps.io/VitaTracer){target="_blank"}. This Shiny app allows me to see a summary of all my values, and inspect how they evolved over time. All the code is available at this [GitHub repository](https://github.com/alanzos/VitaTracer){target="_blank"}.
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+![](png/VitaTracer.png)
+:::
+:::
