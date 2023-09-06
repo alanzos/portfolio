@@ -32,7 +32,7 @@ Diversification is essential in an investment portfolio. That is why I developed
 :::
 :::
 
-## Shihy app to trace your blood/urine test
+## Shiny app to trace your blood/urine test
 
 ::: columns
 ::: {.column width="55%"}
