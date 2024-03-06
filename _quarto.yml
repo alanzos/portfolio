@@ -20,7 +20,7 @@ website:
     left: |
      [Send me an email](mailto:andreslanzos-portfolio@runbox.com){target="_blank"}
     right: |
-      [GitHub repository](https://github.com/alanzos/portfolio){target="_blank"}
+      [GitHub repository](https://github.com/alanzos){target="_blank"}
     background: "primary"
 format:
   html:
