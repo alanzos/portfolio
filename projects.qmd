@@ -1,5 +1,11 @@
 ---
 title: "Projects"
+format:
+  html:
+    toc: true
+    toc-title: Projects
+    toc-location: left
+    number-sections: true
 ---
 
 ## Why I stopped using Precision and Accuracy for binary classification
@@ -46,3 +52,11 @@ Every time I have done a blood or urine test, it was difficult to compare to pre
 ![](png/VitaTracer.png)
 :::
 :::
+
+## Shiny app to explore the 3D structure of proteins measured by Mass Spectrometry
+
+Back in 2021, I was working at R&D department of [Biognosys](https://biognosys.com){target="_blank"} when [AlphaFold2](https://alphafold.ebi.ac.uk/){target="_blank"} structures were released, and I realized that such a resource could be very useful for our company. I made a post with my ideas in our internal network, an a few days later the CEO of the company came to my desk to discuss it. After a couple months of work in top of my main project, we released the [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/){target="_blank"}.
+
+![](png/protein_explorer.png)
+
+This was a great project to learn how to display the 3D structure of proteins and to create a Shiny app to be released to the public, two things that I never did before. While it's a "simple" app, it was great to show to our customers which proteins we were able to detect in plasma samples, and exactly which regions we could see via Mass Spectrometry. The app is currently deployed on shinyapps.io, and I had to get creative to quickly display the protein that the user selected among thousands of them without freezing the app. It was a fun project where I collaborated with the business and marketing departments.
