@@ -60,3 +60,32 @@ Back in 2021, I was working at R&D department of [Biognosys](https://biognosys.c
 ![](png/protein_explorer.png)
 
 This was a great project to learn how to display the 3D structure of proteins and to create a Shiny app to be released to the public, two things that I never did before. While it's a "simple" app, it was great to show to our customers which proteins we were able to detect in plasma samples, and exactly which regions we could see via Mass Spectrometry. The app is currently deployed on shinyapps.io, and I had to get creative to quickly display the protein that the user selected among thousands of them without freezing the app. It was a fun project where I collaborated with the business and marketing departments.
+
+## ExInAtor 1 & 2 - Finding cancer driver lncRNAs
+
+::: columns
+::: {.column width="55%"}
+I spent my PhD at the [GOLD lab](https://www.gold-lab.org/){target="_blank"}, under the supervision of [Rory Johnson](https://www.linkedin.com/in/roryjohnson1/){target="_blank"}, in the search of cancer driver long noncoding RNAs (lncRNAs), a type of genes that are transcribed but do not encode proteins. During this time, I developed [ExInAtor](https://github.com/alanzos/ExInAtor){target="_blank"}, the first tool ever designed to specifically find if lncRNAs were frequently mutated in cancer patients, hinting at a potential role in the onset of the disease (hence the name "cancer driver"). We published our findings at [Scientific Reports](https://www.nature.com/articles/srep41544){target="_blank"}, where I was first author.
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%"}
+![](png/exinator1.png)
+:::
+
+::: {.column width="40%"}
+![](png/exinator2.png)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+As we learned more about these genes, I develop a second version, [ExInAtor2](https://github.com/gold-lab/ExInAtor2){target="_blank"}, which included the functional impact of mutations, in addition to their frequency, to prioritize cancer driver lncRNAs. Additionally, [Roberta Esposito](https://www.linkedin.com/in/roberta-esposito-26a08a56/){target="_blank"} led the experimental validation of ExInAtor2 predictions, and we published our findings in [Nature Communications](https://www.nature.com/articles/s41467-023-39160-7){target="_blank"}, where I was first co-author.
+:::
+
+:::
+
+Both tools are a mix of Python and R code, and I had to work hard for ExInAtor2 to be able to run millions of simulations in a decent run time. Back in the days, there was no ChatGPT, so it was a fun experience to learn how to squish Python capabilities as a non-software-engineer.
