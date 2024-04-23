@@ -1,6 +1,6 @@
 ---
-title: "Andrés Lanzós (He/Him)"
-subtitle: <h4>Biomedical Data Scientist - PhD</h4>
+title: "Andres Lanzos (He/Him)"
+subtitle: <h4>BioMedical Data Scientist - PhD</h4>
 image: jpg/photo.jpg
 about:
   id: heading
@@ -31,7 +31,9 @@ My academic research over six years at the [GOLD lab](https://www.gold-lab.org/)
 
 I transitioned to the private sector as Data Scientist at [Biognosys](https://www.biognosys.com){target="_blank"}, where I was introduced to proteomics. During this phase, I applied my technical expertise to the generation and mining of big proteomic data, batch effect correction, and visualization of results for scientific and business stakeholders. One example of my projects at Biognosys is the [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/){target="_blank"}.
 
-I'm currently a Data Scientist at [Idorsia](https://www.idorsia.com/){target="_blank"}, where I focus on target and biomarker discovery by making use of multi-omics, clinical data and Real World Data (RWD), for the oncology and immunology therapeutic areas.
+As a Data Scientist at [Idorsia](https://www.idorsia.com/){target="_blank"}, I focused on target and biomarker discovery by making use of multi-omics, clinical data and Real World Data (RWD), for the oncology and immunology therapeutic areas.
+
+Now, as Co-Founder and CSO of [TrueYouOmics](https://www.trueyouomics.com/){target="_blank"}, my objective is to develop the most comprehensive blood test for disease risk identification and prevention planning via multi-omics and artificial intelligence. TrueYouOmics is part of the [Start-up Booster Grant at CSEM](https://www.csem.ch/en/start-up-booster-grant/){target="_blank"}.
 
 Other interests of mine are investments, trading, economy, technology, entrepreneurship, sustainability, volunteering, survival, bouldering, and fitness.
 

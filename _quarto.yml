@@ -1,7 +1,7 @@
 project:
   type: website
 website:
-  title: "Andrés Lanzós"
+  title: "Andres Lanzos"
   favicon: "jpg/photo.jpg"
   reader-mode: false
   search: 
