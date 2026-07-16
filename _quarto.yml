@@ -51,6 +51,7 @@ format:
     css: styles.css
     link-external-newwindow: true
     link-external-icon: true
+    link-external-filter: '^(?:https?:)?//andreslanzos\.quarto\.pub(?:/|$)'
     smooth-scroll: true
 
 editor: visual

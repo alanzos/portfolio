@@ -7,16 +7,20 @@
   --portfolio-card: #ffffff;
   --portfolio-soft: #f3f7fb;
   --portfolio-border: #d9e3ec;
+  --portfolio-focus: #9a4a00;
   --portfolio-shadow: 0 14px 34px rgba(23, 54, 95, 0.09);
 }
 
 body.quarto-dark,
 [data-bs-theme="dark"] {
+  --portfolio-blue: #7dbcf0;
+  --portfolio-teal: #43c0c5;
   --portfolio-ink: #f2f6fa;
   --portfolio-muted: #bdc8d3;
   --portfolio-card: #172330;
   --portfolio-soft: #111c27;
   --portfolio-border: #34485c;
+  --portfolio-focus: #ffd166;
   --portfolio-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
@@ -28,6 +32,13 @@ body {
 
 a {
   text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.08em;
+}
+
+:where(a, button, input, [tabindex]):focus-visible {
+  border-radius: 0.25rem;
+  outline: 3px solid var(--portfolio-focus) !important;
+  outline-offset: 3px;
 }
 
 .navbar {
@@ -42,6 +53,21 @@ a {
 
 .navbar-nav .nav-link {
   font-weight: 600;
+}
+
+.navbar-nav .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.42rem;
+}
+
+.navbar .quarto-navigation-tool,
+.navbar .aa-DetachedSearchButton {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
 }
 
 div.quarto-about-jolla {
@@ -82,9 +108,13 @@ body.quarto-dark .quarto-about-jolla h1.title,
 }
 
 .quarto-about-jolla .about-link {
+  align-items: center;
   border: 1px solid var(--portfolio-border);
   border-radius: 999px;
+  display: inline-flex;
   font-weight: 650;
+  justify-content: center;
+  min-height: 2.75rem;
   padding: 0.48rem 0.85rem;
   transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }
@@ -98,7 +128,7 @@ body.quarto-dark .quarto-about-jolla h1.title,
 .intro-copy {
   font-size: 1.18rem;
   margin: 0 auto;
-  max-width: 68rem;
+  max-width: 76ch;
 }
 
 .intro-copy p {
@@ -121,10 +151,31 @@ body.quarto-dark .quarto-about-jolla h1.title,
 }
 
 .btn {
+  align-items: center;
   border-radius: 999px;
+  display: inline-flex;
   font-weight: 700;
+  justify-content: center;
+  min-height: 2.75rem;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+}
+
+body.quarto-dark .btn-outline-primary,
+body.quarto-dark .btn-outline-secondary,
+[data-bs-theme="dark"] .btn-outline-primary,
+[data-bs-theme="dark"] .btn-outline-secondary {
+  border-color: #6398c5;
+  color: #a8d5f7;
+}
+
+body.quarto-dark .btn-outline-primary:hover,
+body.quarto-dark .btn-outline-secondary:hover,
+[data-bs-theme="dark"] .btn-outline-primary:hover,
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+  background: #a8d5f7;
+  border-color: #a8d5f7;
+  color: #0f1c28;
 }
 
 h2.section-heading {
@@ -187,6 +238,7 @@ body.quarto-dark h2.section-heading,
   color: var(--portfolio-blue);
   display: block;
   font-size: clamp(1.65rem, 2.4vw, 2.15rem);
+  font-variant-numeric: tabular-nums;
   font-weight: 850;
   letter-spacing: -0.035em;
   line-height: 1;
@@ -229,6 +281,12 @@ body.quarto-dark .project-feature h3,
   padding: 1.35rem 1.5rem;
 }
 
+.experience-card > p,
+section#research-that-translates > p,
+section#lets-work-together > p {
+  max-width: 78ch;
+}
+
 .experience-card p:last-child,
 .capability-card p:last-child,
 .publication-card p:last-child,
@@ -264,6 +322,13 @@ body.quarto-dark .project-feature h3,
   width: 100%;
 }
 
+.project-feature figcaption {
+  color: var(--portfolio-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin-top: 0.4rem;
+}
+
 .cv-actions {
   justify-content: flex-start;
   margin: 1.5rem 0;
@@ -293,6 +358,11 @@ body.quarto-dark .project-feature h3,
   font-size: 0.92rem;
 }
 
+body.quarto-dark .nav-footer a,
+[data-bs-theme="dark"] .nav-footer a {
+  color: #cfdeeb;
+}
+
 @media (max-width: 991.98px) {
   .metrics-grid,
   .capabilities-grid {
@@ -319,8 +389,39 @@ body.quarto-dark .project-feature h3,
     grid-template-columns: 1fr;
   }
 
+  .quarto-about-jolla .about-links {
+    display: grid !important;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 22rem;
+    width: 100%;
+  }
+
+  .quarto-about-jolla .about-link {
+    font-size: 0.95rem;
+    min-width: 0;
+    padding-left: 0.55rem;
+    padding-right: 0.55rem;
+    width: 100%;
+  }
+
+  .quarto-about-jolla .about-link:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.275rem);
+  }
+
   h2.section-heading {
-    margin-top: 3rem;
+    margin-top: 2.75rem;
+  }
+
+  .metric-card,
+  .capability-card,
+  .publication-card,
+  .experience-card {
+    padding: 1.15rem;
   }
 
   .cta-row,
@@ -354,7 +455,8 @@ body.quarto-dark .project-feature h3,
   }
 
   .cv-frame {
-    height: 720px;
+    height: min(70vh, 720px);
+    min-height: 32rem;
   }
 }
 
