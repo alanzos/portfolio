@@ -1,27 +1,48 @@
 project:
   type: website
+
 website:
   title: "Andres Lanzos"
+  site-url: "https://andreslanzos.quarto.pub/"
+  description: "Portfolio of Andres Lanzos, a biomedical data scientist working across translational omics, biomarker discovery and ML products."
   favicon: "jpg/photo.jpg"
+  open-graph: true
+  twitter-card: true
   reader-mode: false
-  search: 
+  page-navigation: true
+  back-to-top-navigation: true
+  search:
     location: navbar
     type: overlay
   navbar:
     pinned: true
+    background: primary
     left:
       - href: index.qmd
-        text: Home
+        text: About
       - href: projects.qmd
         text: Projects
       - href: resume.qmd
-        text: Resume
+        text: CV
+    right:
+      - icon: envelope
+        href: mailto:andreslanzos@gmail.com
+        aria-label: Email Andres Lanzos
+      - icon: linkedin
+        href: https://www.linkedin.com/in/andreslanzos/
+        aria-label: LinkedIn profile
+      - icon: github
+        href: https://github.com/alanzos
+        aria-label: GitHub profile
   page-footer:
+    border: true
     left: |
-     [Send me an email](mailto:andreslanzos-portfolio@runbox.com){target="_blank"}
+      © 2026 Andres Lanzos · Allschwil, Switzerland
+    center: |
+      [andreslanzos@gmail.com](mailto:andreslanzos@gmail.com)
     right: |
-      [GitHub repository](https://github.com/alanzos){target="_blank"}
-    background: "primary"
+      [LinkedIn](https://www.linkedin.com/in/andreslanzos/) · [GitHub](https://github.com/alanzos)
+
 format:
   html:
     theme:
@@ -30,4 +51,6 @@ format:
     css: styles.css
     link-external-newwindow: true
     link-external-icon: true
+    smooth-scroll: true
+
 editor: visual

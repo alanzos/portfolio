@@ -1,7 +1,37 @@
-# Portfolio developed with Quarto
+# Andres Lanzos portfolio
 
-Having a portfolio is a good way to show your work as a data scientist. This repository contains the code that I used to create my <a class="reference external" href="https://andreslanzos.quarto.pub/">Portfolio</a>. 
+Source for [andreslanzos.quarto.pub](https://andreslanzos.quarto.pub/), built and published with [Quarto](https://quarto.org/).
 
-Many thanks to Deepsha Menghani and Posit for the <a class="reference external" href="https://www.youtube.com/watch?v=xtSFXtDf4cM">Create your Data Science Portfolio with Quarto</a> meetup event, where I learned how to develop and publish this portfolio.
+The site presents Andres's biomedical data-science profile, selected impact,
+current CV and project portfolio. Career facts and metrics are synchronized
+with the canonical CV workspace; the reviewed website CV is stored at:
 
-License of this repository: GNU Affero General Public License v3 (AGPL-3.0).
+`pdf/2026-07-17_Andres_Lanzos_CV_EN_Canonical_Option_B.pdf`
+
+## Local development
+
+```bash
+quarto preview
+```
+
+Build the complete static site with:
+
+```bash
+quarto render
+```
+
+## Publishing
+
+The existing Quarto Pub destination is recorded in `_publish.yml`. After reviewing the rendered `_site/` output, publish with:
+
+```bash
+quarto publish quarto-pub --no-prompt --no-browser
+```
+
+## Contact
+
+[andreslanzos@gmail.com](mailto:andreslanzos@gmail.com)
+
+## License
+
+GNU Affero General Public License v3.0 (AGPL-3.0).

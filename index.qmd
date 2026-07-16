@@ -1,40 +1,150 @@
 ---
-title: "Andres Lanzos (He/Him)"
-subtitle: <h4>BioMedical Data Scientist - PhD</h4>
+title: "Andres Lanzos"
+subtitle: "Biomedical Data Scientist · Translational Omics · Biomarker Discovery · ML Products"
+description: "PhD biomedical data scientist turning multi-omics, clinical and real-world data into translational evidence and operational products."
 image: jpg/photo.jpg
 about:
   id: heading
   template: jolla
-  image-width: 20em
+  image-width: 16em
   image-shape: round
   links:
+    - icon: envelope
+      text: Email
+      href: mailto:andreslanzos@gmail.com
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/andreslanzos/
     - icon: github
       text: GitHub
       href: https://github.com/alanzos
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/andreslanzos
     - icon: google
       text: Google Scholar
-      href: https://scholar.google.com.sg/citations?user=h1VE1i8AAAAJ&hl=en
+      href: https://scholar.google.com/citations?user=h1VE1i8AAAAJ&hl=en
+    - icon: person-badge
+      text: ORCID
+      href: https://orcid.org/0000-0002-5844-2974
+page-layout: full
 ---
 
 ::: {#heading}
 :::
 
-BioMedical Data Science is the perfect combination of three of my passions: statistics, biology, and programming. During my career, I have used computational algorithms and statistical models to answer biological questions.
+::: {.intro-copy}
+I am a PhD biomedical data scientist with **5+ years in Swiss biotech, pharma and healthtech** and **10+ years across industry and academia**. I take data-science projects from discovery to operational product, connecting scientific evidence with product design, data and cloud infrastructure, regulatory strategy, stakeholder negotiation, customer discovery and user testing.
 
-My academic research over six years at the [GOLD lab](https://www.gold-lab.org/){target="_blank"} (Master, PhD, and Postdoc) focused on cancer genomics, specifically in detecting long non-coding RNAs (genes that do not encode proteins) mutated in cancer patients. I acquired knowledge in cancer biology, molecular genetics, in statistical modeling, data analysis, and programming (Python, Perl, R, and Unix). My work during this period resulted in 8 publications, with four of them where I was first author ([Google Scholar](https://scholar.google.co.uk/citations?user=h1VE1i8AAAAJ&hl=en){target="_blank"}).
+My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in **Allschwil, Switzerland**, and hold a Swiss C permit.
+:::
 
-I transitioned to the private sector as Data Scientist at [Biognosys](https://www.biognosys.com){target="_blank"}, where I was introduced to proteomics. During this phase, I applied my technical expertise to the generation and mining of big proteomic data, batch effect correction, and visualization of results for scientific and business stakeholders. One example of my projects at Biognosys is the [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/){target="_blank"}.
+::: {.cta-row}
+[View my CV](resume.qmd){.btn .btn-primary .btn-lg}
+[Explore selected projects](projects.qmd){.btn .btn-outline-primary .btn-lg}
+[Email me](mailto:andreslanzos@gmail.com){.btn .btn-outline-secondary .btn-lg}
+:::
 
-As a Data Scientist at [Idorsia](https://www.idorsia.com/){target="_blank"}, I focused on target and biomarker discovery by making use of multi-omics, clinical data and Real World Data (RWD), for the oncology and immunology therapeutic areas.
+## Evidence at a glance {.section-heading}
 
-Now, as Co-Founder and CSO of [Idunox](https://www.idunox.com) (former TrueYouOmics), my objective is to develop the most comprehensive blood test for disease risk identification and prevention planning via multi-omics and artificial intelligence. Idunox is part of the [Accelerate program at CSEM](https://www.csem.ch/en/accelerate-start-up-program/){target="_blank"}.
+::: {.metrics-grid}
+::: {.metric-card}
+<span class="metric-value">4x</span>
 
-Other interests of mine are investments, trading, economy, technology, entrepreneurship, sustainability, volunteering, survival, bouldering, and fitness.
+Sensitivity versus the best clinical tools at matched specificity in an ML disease-risk pipeline.
+:::
 
-I am always interested in projects related to the topics described above, and I am open to insightful conversations. Feel free to contact me on [Linkedin](https://www.linkedin.com/in/andreslanzos/){target="_blank"} for opportunities and networking.
+::: {.metric-card}
+<span class="metric-value">CHF 700k</span>
+
+Dilutive and non-dilutive funding raised for a preventive-health venture.
+:::
+
+::: {.metric-card}
+<span class="metric-value">CHF 1M+</span>
+
+Cross-functional scientific programmes led in biotech and pharma environments.
+:::
+
+::: {.metric-card}
+<span class="metric-value">1,452</span>
+
+Google Scholar citations across eight publications, with an h-index of 7.
+:::
+:::
+
+## What I bring {.section-heading}
+
+::: {.capabilities-grid}
+::: {.capability-card}
+### Translational science
+
+Target and biomarker discovery, oncology, immunology, multi-omics, proteomics, metabolomics, bulk and single-cell RNA-seq, clinical data and real-world data.
+:::
+
+::: {.capability-card}
+### Data science and engineering
+
+Python, R, SQL, machine learning, survival and differential analyses, AWS, Linux, Git/GitLab, Nextflow, nf-core, high-performance computing and Shiny.
+:::
+
+::: {.capability-card}
+### Product and delivery
+
+From scientific discovery to operational products: GCP/GxP, product design, regulatory strategy, cloud infrastructure, stakeholder management, negotiations, customer acquisition and user testing.
+:::
+:::
+
+## Selected experience {.section-heading}
+
+::: {.experience-list}
+::: {.experience-card}
+### CSEM · Entrepreneur, Idunox Startup Project
+
+**2024–2026 · Allschwil, Switzerland**
+
+Developed an ML pipeline from raw data to disease risks and explainable markers, achieving 4x sensitivity at matched specificity. Raised CHF 700k and led R&D strategy for a team of five across data and AI workflows, legal and ethics frameworks, governance, providers and supply chain.
+:::
+
+::: {.experience-card}
+### Idorsia Pharmaceuticals · Data Scientist
+
+**2022–2024 · Translational Biomarkers, Drug Discovery Biology**
+
+Discovered targets, biomarkers, mechanisms of action and indications in oncology and immunology using omics and real-world data. Built automated Nextflow/nf-core pipelines in GitLab and AWS and served as lead scientist on a CHF 1M+ programme.
+:::
+
+::: {.experience-card}
+### Biognosys · Data Scientist
+
+**2020–2022 · Schlieren, Switzerland**
+
+Developed proteomics data products, R algorithms and Shiny applications; designed SQL databases for clinical data under GCP/GxP constraints; and led a CHF 1M+ cross-functional programme spanning science, IT, legal, regulatory, operations and wet-lab teams.
+:::
+:::
+
+## Research that translates {.section-heading}
+
+My academic work focused on cancer genomics and long non-coding RNA drivers. I developed ExInAtor, contributed one of 13 methods selected by the PCAWG consortium, and co-first-authored research connecting non-coding mutations with cancer cell fitness.
+
+::: {.publication-grid}
+::: {.publication-card}
+### [Tumour mutations in long noncoding RNAs enhance cell fitness](https://www.nature.com/articles/s41467-023-39160-7)
+
+*Nature Communications*, 2023 · Co-first author · 25 citations
+:::
+
+::: {.publication-card}
+### [Analyses of non-coding somatic drivers in 2,658 cancer whole genomes](https://www.nature.com/articles/s41586-020-1965-x)
+
+*Nature*, 2020 · Developer of one of 13 PCAWG-selected methods · 762 citations
+:::
+:::
+
+<p class="citation-note">Citation snapshot updated 16 July 2026. See the complete record on <a href="https://scholar.google.com/citations?user=h1VE1i8AAAAJ&amp;hl=en" target="_blank">Google Scholar</a>.</p>
+
+## Let’s work together {.section-heading}
+
+I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together—particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.
+
+::: {.cta-row .cta-final}
+[andreslanzos@gmail.com](mailto:andreslanzos@gmail.com){.btn .btn-primary .btn-lg}
+[LinkedIn profile](https://www.linkedin.com/in/andreslanzos/){.btn .btn-outline-primary .btn-lg}
+:::

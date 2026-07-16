@@ -1,91 +1,114 @@
 ---
-title: "Projects"
+title: "Selected Projects"
+description: "Biomedical data science, scientific software and applied analytics projects by Andres Lanzos."
+page-layout: full
 format:
   html:
     toc: true
     toc-title: Projects
-    toc-location: left
-    number-sections: true
+    toc-location: right
 ---
 
-## Why I stopped using Precision and Accuracy for binary classification
+The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.
 
-::: columns
-::: {.column width="55%"}
-Precision and Accuracy are the most common performance metrics when dealing with binary classification problems. Doing some research, I found out that they are not robust enough for frequent scenarios in biomedical data science. Find out why, and what is the alternative metric on my [LinkedIn article](https://www.linkedin.com/pulse/why-i-stopped-using-precision-accuracy-binary-andr%C3%A9s-lanz%C3%B3s/){target="_blank"}. All the code is available at this [GitHub repository](https://github.com/alanzos/performance_metrics_for_binary_classification){target="_blank"}.
+## 3D Protein Explorer
+
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Connecting mass spectrometry with protein structure
+
+While working in R&D at [Biognosys](https://biognosysgroup.com/), I identified an opportunity to connect newly released AlphaFold structures with the company’s proteomics coverage. The resulting [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/) lets users select a protein and see which regions are observed by mass spectrometry.
+
+I built the public Shiny application and designed a responsive data-loading approach that could search thousands of proteins without freezing the interface. The project was developed alongside my main work and involved collaboration with business and marketing teams to turn a technical capability into a customer-facing demonstration.
+
+**Focus:** R · Shiny · proteomics · AlphaFold · scientific visualization · product collaboration
 :::
 
-::: {.column width="5%"}
+::: {.column width="42%"}
+![3D Protein Explorer interface](png/protein_explorer.png){.project-image}
 :::
-
-::: {.column width="40%"}
-![](jpg/precision_accuracy.jpg)
-:::
-:::
-
-## Shiny app to explore investments diversification
-
-::: columns
-::: {.column width="40%"}
-![](jpg/microwd_webapp.JPG)
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="55%"}
-Diversification is essential in an investment portfolio. That is why I developed a [Shiny app](https://andreslanzos.shinyapps.io/microwd_diversification/){target="_blank"} to explore the diversification of my investments in [Microwd](https://www.microwd.es/en/){target="_blank"}. All the code is available at this [GitHub repository](https://github.com/alanzos/microwd_diversification){target="_blank"}.
 :::
 :::
 
-## Shiny app to trace your blood/urine test
+## ExInAtor and ExInAtor2
 
-::: columns
-::: {.column width="55%"}
-Every time I have done a blood or urine test, it was difficult to compare to previous values. That is why I collected my results from the last +5 years and created [VitaTracer](https://andreslanzos.shinyapps.io/VitaTracer){target="_blank"}. This Shiny app allows me to see a summary of all my values, and inspect how they evolved over time. All the code is available at this [GitHub repository](https://github.com/alanzos/VitaTracer){target="_blank"}.
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Finding cancer-driver long non-coding RNAs
+
+During my PhD, I developed [ExInAtor](https://github.com/alanzos/ExInAtor), the first method designed specifically to identify long non-coding RNAs recurrently mutated in cancer. The work was published in [Scientific Reports](https://www.nature.com/articles/srep41544), where I was first author.
+
+I later developed [ExInAtor2](https://github.com/gold-lab/ExInAtor2), adding functional-impact evidence to mutation frequency and optimizing Python and R workflows to run millions of simulations efficiently. Experimental validation led by Roberta Esposito supported the predictions; the work was published in [Nature Communications](https://www.nature.com/articles/s41467-023-39160-7), where I was co-first author.
+
+**Focus:** Python · R · cancer genomics · statistical simulation · high-performance computing · reproducible research
 :::
 
-::: {.column width="5%"}
+::: {.column width="42%"}
+![ExInAtor mutation analysis](png/exinator1.png){.project-image}
+
+![ExInAtor2 functional-impact analysis](png/exinator2.png){.project-image}
+:::
+:::
 :::
 
-::: {.column width="40%"}
-![](png/VitaTracer.png)
-:::
-:::
+## Evaluating binary classifiers beyond accuracy
 
-## Shiny app to explore the 3D structure of proteins measured by Mass Spectrometry
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Choosing metrics that match biomedical decisions
 
-Back in 2021, I was working at R&D department of [Biognosys](https://biognosys.com){target="_blank"} when [AlphaFold2](https://alphafold.ebi.ac.uk/){target="_blank"} structures were released, and I realized that such a resource could be very useful for our company. I made a post with my ideas in our internal network, an a few days later the CEO of the company came to my desk to discuss it. After a couple months of work in top of my main project, we released the [3D Protein Explorer](https://biognosys.shinyapps.io/3D_protein_explorer/){target="_blank"}.
+Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.
 
-![](png/protein_explorer.png)
+[Read the LinkedIn article](https://www.linkedin.com/pulse/why-i-stopped-using-precision-accuracy-binary-andr%C3%A9s-lanz%C3%B3s/) or inspect the [reproducible code and examples on GitHub](https://github.com/alanzos/performance_metrics_for_binary_classification).
 
-This was a great project to learn how to display the 3D structure of proteins and to create a Shiny app to be released to the public, two things that I never did before. While it's a "simple" app, it was great to show to our customers which proteins we were able to detect in plasma samples, and exactly which regions we could see via Mass Spectrometry. The app is currently deployed on shinyapps.io, and I had to get creative to quickly display the protein that the user selected among thousands of them without freezing the app. It was a fun project where I collaborated with the business and marketing departments.
-
-## ExInAtor 1 & 2 - Finding cancer driver lncRNAs
-
-::: columns
-::: {.column width="55%"}
-I spent my PhD at the [GOLD lab](https://www.gold-lab.org/){target="_blank"}, under the supervision of [Rory Johnson](https://www.linkedin.com/in/roryjohnson1/){target="_blank"}, in the search of cancer driver long noncoding RNAs (lncRNAs), a type of genes that are transcribed but do not encode proteins. During this time, I developed [ExInAtor](https://github.com/alanzos/ExInAtor){target="_blank"}, the first tool ever designed to specifically find if lncRNAs were frequently mutated in cancer patients, hinting at a potential role in the onset of the disease (hence the name "cancer driver"). We published our findings at [Scientific Reports](https://www.nature.com/articles/srep41544){target="_blank"}, where I was first author.
+**Focus:** model evaluation · imbalanced classification · statistical reasoning · technical communication
 :::
 
-::: {.column width="5%"}
+::: {.column width="42%"}
+![Illustration comparing precision and accuracy](jpg/precision_accuracy.jpg){.project-image}
+:::
+:::
 :::
 
-::: {.column width="40%"}
-![](png/exinator1.png)
+## VitaTracer
+
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Making longitudinal laboratory results easier to understand
+
+I created [VitaTracer](https://andreslanzos.shinyapps.io/VitaTracer) after finding it difficult to compare blood and urine test results across time. The Shiny application summarizes laboratory measurements and makes longitudinal changes easier to inspect.
+
+The [source code is available on GitHub](https://github.com/alanzos/VitaTracer).
+
+**Focus:** R · Shiny · longitudinal data · health-data visualization
 :::
 
-::: {.column width="40%"}
-![](png/exinator2.png)
+::: {.column width="42%"}
+![VitaTracer longitudinal results interface](png/VitaTracer.png){.project-image}
+:::
+:::
 :::
 
-::: {.column width="5%"}
+## Investment-diversification explorer
+
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Exploring concentration and diversification interactively
+
+This [Shiny application](https://andreslanzos.shinyapps.io/microwd_diversification/) explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.
+
+The [source code is available on GitHub](https://github.com/alanzos/microwd_diversification).
+
+**Focus:** R · Shiny · interactive analytics · financial data visualization
 :::
 
-::: {.column width="55%"}
-As we learned more about these genes, I develop a second version, [ExInAtor2](https://github.com/gold-lab/ExInAtor2){target="_blank"}, which included the functional impact of mutations, in addition to their frequency, to prioritize cancer driver lncRNAs. Additionally, [Roberta Esposito](https://www.linkedin.com/in/roberta-esposito-26a08a56/){target="_blank"} led the experimental validation of ExInAtor2 predictions, and we published our findings in [Nature Communications](https://www.nature.com/articles/s41467-023-39160-7){target="_blank"}, where I was first co-author.
+::: {.column width="42%"}
+![Investment-diversification application](jpg/microwd_webapp.JPG){.project-image}
 :::
-
 :::
-
-Both tools are a mix of Python and R code, and I had to work hard for ExInAtor2 to be able to run millions of simulations in a decent run time. Back in the days, there was no ChatGPT, so it was a fun experience to learn how to squish Python capabilities as a non-software-engineer.
+:::
