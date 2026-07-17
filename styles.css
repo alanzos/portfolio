@@ -84,7 +84,7 @@ div.quarto-about-jolla {
 
 .quarto-about-jolla h1.title {
   color: var(--portfolio-navy);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-size: clamp(1.875rem, 3.75vw, 3.15rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.02;

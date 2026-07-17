@@ -6,7 +6,7 @@ image: jpg/photo.jpg
 about:
   id: heading
   template: jolla
-  image-width: 16em
+  image-width: 12em
   image-shape: round
   links:
     - icon: envelope
