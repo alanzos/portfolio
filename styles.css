@@ -141,19 +141,13 @@ body.quarto-dark .quarto-about-jolla h1.title,
   margin-bottom: 1rem;
 }
 
-.cta-row,
 .cv-actions {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  justify-content: center;
-  margin: 1.9rem 0 3rem;
-}
-
-.cta-final {
   justify-content: flex-start;
-  margin-bottom: 1.2rem;
+  margin: 1.9rem 0 3rem;
 }
 
 .btn {
@@ -430,13 +424,11 @@ body.quarto-dark .nav-footer a,
     padding: 1.15rem;
   }
 
-  .cta-row,
   .cv-actions {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .cta-row .btn,
   .cv-actions .btn {
     text-align: center;
     width: 100%;

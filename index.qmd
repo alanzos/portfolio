@@ -35,12 +35,6 @@ I am a PhD biomedical data scientist with **5+ years in Swiss biotech, pharma an
 My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in **Basel, Switzerland**, and hold a Swiss C permit.
 :::
 
-::: {.cta-row}
-[View my CV](resume.qmd){.btn .btn-primary .btn-lg .no-external}
-[Explore selected projects](projects.qmd){.btn .btn-outline-primary .btn-lg .no-external}
-[Email me](mailto:andreslanzos@gmail.com){.btn .btn-outline-secondary .btn-lg}
-:::
-
 ## Evidence at a glance {.section-heading}
 
 ::: {.metrics-grid}
@@ -142,8 +136,3 @@ My academic work focused on cancer genomics and long non-coding RNA drivers. I d
 ## Let’s work together {.section-heading}
 
 I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together, particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.
-
-::: {.cta-row .cta-final}
-[andreslanzos@gmail.com](mailto:andreslanzos@gmail.com){.btn .btn-primary .btn-lg}
-[LinkedIn profile](https://www.linkedin.com/in/andreslanzos/){.btn .btn-outline-primary .btn-lg}
-:::
