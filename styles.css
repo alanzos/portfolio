@@ -100,7 +100,10 @@ body.quarto-dark .quarto-about-jolla h1.title,
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 600;
   line-height: 1.45;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 52rem;
+  text-align: center;
 }
 
 .quarto-about-jolla .about-links {

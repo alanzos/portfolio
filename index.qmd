@@ -1,7 +1,6 @@
 ---
 title: "Andres Lanzos"
 subtitle: "Biomedical Data Scientist · Translational Omics · Biomarker Discovery · ML Products"
-description: "PhD biomedical data scientist turning multi-omics, clinical and real-world data into translational evidence and operational products."
 image: jpg/photo.jpg
 about:
   id: heading
