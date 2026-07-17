@@ -8,6 +8,18 @@ with the canonical CV workspace; the reviewed website CV is stored at:
 
 `pdf/2026-07-17_Andres_Lanzos_CV_EN_Canonical_Option_B.pdf`
 
+## Current site conventions
+
+- The personal location is `Basel, Switzerland`.
+- CSEM and Idorsia experience entries retain `Allschwil, Switzerland` as the
+  employment location.
+- The homepage uses the persistent navigation and footer for CV, project,
+  email, LinkedIn, and GitHub access. It intentionally has no separate CTA
+  button rows in the page body.
+- The CV page embeds the reviewed two-page Option B PDF and keeps its download
+  and email controls.
+- Prose avoids em dashes; date ranges retain their normal range punctuation.
+
 ## Local development
 
 ```bash
