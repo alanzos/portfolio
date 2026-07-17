@@ -141,7 +141,7 @@ My academic work focused on cancer genomics and long non-coding RNA drivers. I d
 
 ## Let’s work together {.section-heading}
 
-I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together—particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.
+I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together, particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.
 
 ::: {.cta-row .cta-final}
 [andreslanzos@gmail.com](mailto:andreslanzos@gmail.com){.btn .btn-primary .btn-lg}
