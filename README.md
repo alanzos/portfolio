@@ -6,7 +6,7 @@ The site presents Andres's biomedical data-science profile, selected impact,
 current CV and project portfolio. Career facts and metrics are synchronized
 with the canonical CV workspace; the reviewed website CV is stored at:
 
-`pdf/2026-07-18_Andres_Lanzos_CV_EN_Canonical_Option_B.pdf`
+`pdf/2026-07-18_Andres_Lanzos_CV_EN_Canonical_Option_C.pdf`
 
 ## Current site conventions
 
@@ -16,8 +16,9 @@ with the canonical CV workspace; the reviewed website CV is stored at:
 - The homepage uses the persistent navigation and footer for CV, project,
   email, LinkedIn, and GitHub access. It intentionally has no separate CTA
   button rows in the page body.
-- The CV page embeds the reviewed two-page Option B PDF and keeps its download
-  and email controls.
+- The CV page embeds the reviewed two-page Option C PDF and keeps its download
+  and email controls. Option C combines the navy-and-cream visual identity with
+  a single-column, tagged, ATS-readable structure.
 - Prose avoids em dashes; date ranges retain their normal range punctuation.
 
 ## Local development
