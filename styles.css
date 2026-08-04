@@ -84,9 +84,9 @@ a {
 .navbar .container-fluid.navbar-container {
   align-items: center !important;
   display: flex !important;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 4rem;
   width: 100%;
 }
@@ -111,15 +111,15 @@ a {
   line-height: 1.2;
 }
 
-/* Keep links+icons visible and packed; do not stretch to fill the bar */
+/* Stretch so left links stay left and right icons stay right; vertically center */
 .navbar-collapse {
   align-items: center !important;
   display: flex !important;
   flex-basis: auto !important;
-  flex-grow: 0 !important;
-  gap: var(--navbar-left-gap);
+  flex-grow: 1 !important;
+  gap: 0;
   height: auto !important;
-  margin: 0 var(--navbar-icon-gap) 0 0 !important;
+  margin: 0 !important;
   overflow: visible !important;
 }
 
@@ -130,14 +130,15 @@ a {
   margin: 0 !important;
 }
 
-.navbar-nav.me-auto,
-.navbar-nav.ms-auto {
+.navbar-nav.me-auto {
   margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-right: auto !important;
 }
 
 .navbar-nav.ms-auto {
   gap: var(--navbar-icon-gap);
+  margin-left: auto !important;
+  margin-right: var(--navbar-icon-gap) !important;
 }
 
 .navbar-nav .nav-item {
@@ -175,6 +176,7 @@ a {
 
 .quarto-navbar-tools {
   align-items: center;
+  align-self: center;
   display: inline-flex;
   gap: var(--navbar-icon-gap);
   margin: 0 var(--navbar-icon-gap) 0 0 !important;
@@ -184,6 +186,7 @@ a {
 .navbar .aa-DetachedSearchButton,
 #quarto-search {
   align-items: center;
+  align-self: center;
   display: inline-flex;
   justify-content: center;
   margin: 0 !important;
