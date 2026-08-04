@@ -980,6 +980,27 @@ section#references ol {
   font-weight: 600;
 }
 
+.gh-site-stat {
+  align-items: baseline;
+  color: var(--portfolio-muted);
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  gap: 0.4rem;
+  margin-left: 0.75rem;
+}
+
+.nav-footer-left .gh-site-stat {
+  display: block;
+  margin-left: 0;
+  margin-top: 0.35rem;
+}
+
+body.quarto-dark .gh-site-stat .gh-engagement-count,
+[data-bs-theme="dark"] .gh-site-stat .gh-engagement-count {
+  color: #e8eef4;
+}
+
 .gh-listen {
   align-items: center;
   display: inline-flex;

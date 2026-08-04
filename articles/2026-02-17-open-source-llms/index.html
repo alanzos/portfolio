@@ -413,17 +413,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<!-- GitHub Pages only: visit / read counters + Kokoro article listen -->
-<div id="gh-toolbar" class="gh-toolbar">
+<!-- GitHub Pages only: article reads + Kokoro listen; site visits go in the footer -->
+<div id="gh-toolbar" class="gh-toolbar" hidden="">
   <div id="gh-engagement" class="gh-engagement" aria-live="polite">
     <span class="gh-engagement-item" id="gh-page-stat">
-      <span class="gh-engagement-label" id="gh-engagement-label">Views</span>
+      <span class="gh-engagement-label" id="gh-engagement-label">Article reads</span>
       <span class="gh-engagement-count" id="gh-engagement-count">…</span>
-    </span>
-    <span class="gh-engagement-sep" aria-hidden="true">·</span>
-    <span class="gh-engagement-item" id="gh-site-stat">
-      <span class="gh-engagement-label">Site visits</span>
-      <span class="gh-engagement-count" id="gh-site-count">…</span>
     </span>
   </div>
 
@@ -439,6 +434,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
+<span id="gh-site-stat" class="gh-site-stat" aria-live="polite" hidden="">
+  <span class="gh-engagement-label">Site visits</span>
+  <span class="gh-engagement-count" id="gh-site-count">…</span>
+</span>
+
 <script>
 (() => {
   const NAMESPACE = "alanzosportfolio";
@@ -447,6 +447,7 @@ ul.task-list li input[type="checkbox"] {
   const toolbar = document.getElementById("gh-toolbar");
   const labelEl = document.getElementById("gh-engagement-label");
   const countEl = document.getElementById("gh-engagement-count");
+  const siteStat = document.getElementById("gh-site-stat");
   const siteCountEl = document.getElementById("gh-site-count");
   const listenRoot = document.getElementById("gh-listen");
   const listenToggle = document.getElementById("gh-listen-toggle");
@@ -454,7 +455,7 @@ ul.task-list li input[type="checkbox"] {
   const listenStatus = document.getElementById("gh-listen-status");
   const listenAudio = document.getElementById("gh-listen-audio");
 
-  if (!toolbar || !labelEl || !countEl || !siteCountEl) return;
+  if (!toolbar || !countEl || !siteStat || !siteCountEl) return;
 
   const path = (window.location.pathname || "/")
     .replace(/\/index\.html$/, "")
@@ -468,17 +469,6 @@ ul.task-list li input[type="checkbox"] {
     .replace(/[^a-zA-Z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .toLowerCase() || "home";
-
-  labelEl.textContent = isArticle ? "Article reads" : "Page views";
-
-  const anchor =
-    document.querySelector("header#title-block-header") ||
-    document.querySelector(".quarto-title-meta") ||
-    document.querySelector(".quarto-about-jolla") ||
-    document.querySelector("main#quarto-document-content");
-  if (anchor && anchor.parentNode) {
-    anchor.insertAdjacentElement("afterend", toolbar);
-  }
 
   const formatCount = (n) => Number(n).toLocaleString("en-GB");
 
@@ -522,16 +512,43 @@ ul.task-list li input[type="checkbox"] {
     }
   };
 
-  readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
-    .then((n) => { countEl.textContent = formatCount(n); })
-    .catch(() => { countEl.textContent = "–"; });
+  // Site visits: always in the footer.
+  const footerHost =
+    document.querySelector(".nav-footer-left") ||
+    document.querySelector(".nav-footer-center") ||
+    document.querySelector("footer.footer .nav-footer") ||
+    document.querySelector("footer");
+  if (footerHost) {
+    footerHost.appendChild(siteStat);
+    siteStat.hidden = false;
+  }
 
   readCounter("site", { bump: bumpOnce("gh-viewed:site") })
     .then((n) => { siteCountEl.textContent = formatCount(n); })
     .catch(() => { siteCountEl.textContent = "–"; });
 
-  // --- Kokoro MP3 listen (pre-generated) ---
-  if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
+  // Article toolbar: reads + listen only on articles.
+  if (!isArticle) {
+    toolbar.remove();
+    return;
+  }
+
+  if (labelEl) labelEl.textContent = "Article reads";
+
+  const anchor =
+    document.querySelector("header#title-block-header") ||
+    document.querySelector(".quarto-title-meta") ||
+    document.querySelector("main#quarto-document-content");
+  if (anchor && anchor.parentNode) {
+    anchor.insertAdjacentElement("afterend", toolbar);
+  }
+  toolbar.hidden = false;
+
+  readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
+    .then((n) => { countEl.textContent = formatCount(n); })
+    .catch(() => { countEl.textContent = "–"; });
+
+  if (!listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
 
   const audioUrl = new URL("narration.mp3", window.location.href).href;
 
