@@ -411,11 +411,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<!-- GitHub Pages only: read counters + article listen (Web Speech API) -->
-<div id="gh-toolbar" class="gh-toolbar" hidden="">
-  <div id="gh-engagement" class="gh-engagement" hidden="" aria-live="polite">
-    <span class="gh-engagement-label" id="gh-engagement-label">Reads</span>
-    <span class="gh-engagement-count" id="gh-engagement-count">–</span>
+<!-- GitHub Pages only: visit / read counters + article listen (Web Speech API) -->
+<div id="gh-toolbar" class="gh-toolbar">
+  <div id="gh-engagement" class="gh-engagement" aria-live="polite">
+    <span class="gh-engagement-item" id="gh-page-stat">
+      <span class="gh-engagement-label" id="gh-engagement-label">Views</span>
+      <span class="gh-engagement-count" id="gh-engagement-count">…</span>
+    </span>
+    <span class="gh-engagement-sep" aria-hidden="true">·</span>
+    <span class="gh-engagement-item" id="gh-site-stat">
+      <span class="gh-engagement-label">Site visits</span>
+      <span class="gh-engagement-count" id="gh-site-count">…</span>
+    </span>
   </div>
 
   <div id="gh-listen" class="gh-listen" hidden="">
@@ -435,20 +442,22 @@ ul.task-list li input[type="checkbox"] {
   const API = "https://api.counterapi.dev/v1";
 
   const toolbar = document.getElementById("gh-toolbar");
-  const root = document.getElementById("gh-engagement");
   const labelEl = document.getElementById("gh-engagement-label");
   const countEl = document.getElementById("gh-engagement-count");
+  const siteCountEl = document.getElementById("gh-site-count");
   const listenRoot = document.getElementById("gh-listen");
   const listenToggle = document.getElementById("gh-listen-toggle");
   const listenStop = document.getElementById("gh-listen-stop");
   const listenStatus = document.getElementById("gh-listen-status");
 
-  if (!toolbar || !root || !labelEl || !countEl) return;
+  if (!toolbar || !labelEl || !countEl || !siteCountEl) return;
 
-  const path = (window.location.pathname || "/").replace(/\/index\.html$/, "").replace(/\/+$/, "") || "/";
+  const path = (window.location.pathname || "/")
+    .replace(/\/index\.html$/, "")
+    .replace(/\/+$/, "") || "/";
   const isArticle = /\/articles\/20\d{2}-/.test(path);
 
-  const key = path
+  const pageKey = path
     .replace(/^\/portfolio/, "")
     .replace(/^\/+|\/+$/g, "")
     .replace(/\.html$/, "")
@@ -459,39 +468,68 @@ ul.task-list li input[type="checkbox"] {
   labelEl.textContent = isArticle ? "Article reads" : "Page views";
 
   const anchor =
-    document.querySelector(".quarto-title-meta") ||
     document.querySelector("header#title-block-header") ||
+    document.querySelector(".quarto-title-meta") ||
     document.querySelector(".quarto-about-jolla") ||
     document.querySelector("main#quarto-document-content");
   if (anchor && anchor.parentNode) {
     anchor.insertAdjacentElement("afterend", toolbar);
   }
-  toolbar.hidden = false;
 
-  // --- View / read counter ---
-  const sessionKey = `gh-viewed:${key}`;
-  let already = false;
-  try { already = sessionStorage.getItem(sessionKey) === "1"; } catch (_) {}
+  const formatCount = (n) => Number(n).toLocaleString("en-GB");
 
-  const endpoint = already
-    ? `${API}/${NAMESPACE}/${encodeURIComponent(key)}/`
-    : `${API}/${NAMESPACE}/${encodeURIComponent(key)}/up`;
+  const readCounter = async (name, { bump }) => {
+    const base = `${API}/${NAMESPACE}/${name}`;
+    const urls = bump
+      ? [`${base}/up`, `${base}/`]
+      : [`${base}/`, `${base}`];
 
-  fetch(endpoint, { method: "GET", mode: "cors" })
-    .then((r) => {
-      if (!r.ok) throw new Error(String(r.status));
-      return r.json();
-    })
-    .then((data) => {
-      const n = data && (data.count ?? data.value);
-      if (n == null) throw new Error("missing count");
-      countEl.textContent = Number(n).toLocaleString("en-GB");
-      root.hidden = false;
-      if (!already) {
-        try { sessionStorage.setItem(sessionKey, "1"); } catch (_) {}
+    let lastError = null;
+    for (const url of urls) {
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          mode: "cors",
+          cache: "no-store",
+          credentials: "omit",
+        });
+        if (!response.ok) {
+          lastError = new Error(`HTTP ${response.status}`);
+          continue;
+        }
+        const data = await response.json();
+        const n = data && (data.count ?? data.value);
+        if (n == null) {
+          lastError = new Error("missing count");
+          continue;
+        }
+        return Number(n);
+      } catch (err) {
+        lastError = err;
       }
-    })
-    .catch(() => { root.hidden = true; });
+    }
+    throw lastError || new Error("counter failed");
+  };
+
+  const bumpOnce = (storageKey) => {
+    try {
+      if (sessionStorage.getItem(storageKey) === "1") return false;
+      sessionStorage.setItem(storageKey, "1");
+      return true;
+    } catch (_) {
+      return true;
+    }
+  };
+
+  // Page / article counter
+  readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
+    .then((n) => { countEl.textContent = formatCount(n); })
+    .catch(() => { countEl.textContent = "–"; });
+
+  // Site-wide visits
+  readCounter("site", { bump: bumpOnce("gh-viewed:site") })
+    .then((n) => { siteCountEl.textContent = formatCount(n); })
+    .catch(() => { siteCountEl.textContent = "–"; });
 
   // --- Listen to this article (Web Speech API) ---
   if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus) return;
@@ -502,7 +540,6 @@ ul.task-list li input[type="checkbox"] {
   const synth = window.speechSynthesis;
   let speaking = false;
   let paused = false;
-  let voicesReady = false;
 
   const setIdle = () => {
     speaking = false;
@@ -572,12 +609,10 @@ ul.task-list li input[type="checkbox"] {
       "svg",
     ].join(",")).forEach((el) => el.remove());
 
-    // Keep figure meaning via alt text when present.
     clone.querySelectorAll("img[alt]").forEach((img) => {
       const alt = (img.getAttribute("alt") || "").trim();
       if (!alt) return;
-      const note = document.createTextNode(` Image: ${alt}. `);
-      img.replaceWith(note);
+      img.replaceWith(document.createTextNode(` Image: ${alt}. `));
     });
 
     let text = (clone.innerText || clone.textContent || "")
@@ -613,11 +648,9 @@ ul.task-list li input[type="checkbox"] {
     const voice = pickVoice();
     if (voice) utterance.voice = voice;
     utterance.lang = (voice && voice.lang) || "en-GB";
-
     utterance.onstart = () => setPlaying();
     utterance.onend = () => setIdle();
     utterance.onerror = () => setIdle();
-
     setPlaying();
     synth.speak(utterance);
   };
@@ -637,16 +670,9 @@ ul.task-list li input[type="checkbox"] {
   });
 
   listenStop.addEventListener("click", stop);
-
-  // Chrome loads voices asynchronously.
-  const markVoices = () => { voicesReady = true; };
-  markVoices();
   if (typeof synth.addEventListener === "function") {
-    synth.addEventListener("voiceschanged", markVoices);
-  } else {
-    synth.onvoiceschanged = markVoices;
+    synth.addEventListener("voiceschanged", () => {});
   }
-
   window.addEventListener("beforeunload", stop);
 })();
 </script>
