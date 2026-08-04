@@ -91,11 +91,18 @@ a {
   width: 100%;
 }
 
+/* Quarto sets `.navbar .navbar-container > .navbar-brand-container { margin-right: 0 !important }` —
+   match that specificity and restore the shared left-nav gap. */
 .navbar .navbar-container > .navbar-brand-container,
 .navbar .container-fluid.navbar-container > .navbar-brand-container {
   align-items: center;
   display: flex;
-  margin: 0 var(--navbar-left-gap) 0 0 !important;
+  flex: 0 0 auto;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: var(--navbar-left-gap) !important;
+  margin-top: 0 !important;
+  max-width: none !important;
   padding: 0 !important;
 }
 
@@ -114,6 +121,12 @@ a {
   line-height: 1.2;
 }
 
+/* Belt-and-suspenders: also space the collapse away from the brand */
+.navbar .navbar-container > .navbar-collapse,
+.navbar .container-fluid.navbar-container > .navbar-collapse {
+  margin-left: 0 !important;
+}
+
 /* Stretch so left links stay left and right icons stay right; vertically center */
 .navbar-collapse {
   align-items: center !important;
@@ -122,7 +135,9 @@ a {
   flex-grow: 1 !important;
   gap: 0;
   height: auto !important;
-  margin: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   overflow: visible !important;
 }
 
@@ -136,6 +151,7 @@ a {
 .navbar-nav.me-auto {
   margin-left: 0 !important;
   margin-right: auto !important;
+  padding-left: 0 !important;
 }
 
 .navbar-nav.ms-auto {
