@@ -419,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<!-- GitHub Pages only: visit / read counters + article listen (Web Speech API) -->
+<!-- GitHub Pages only: visit / read counters + Kokoro article listen -->
 <div id="gh-toolbar" class="gh-toolbar">
   <div id="gh-engagement" class="gh-engagement" aria-live="polite">
     <span class="gh-engagement-item" id="gh-page-stat">
@@ -441,6 +441,7 @@ ul.task-list li input[type="checkbox"] {
       Stop
     </button>
     <span class="gh-listen-status" id="gh-listen-status" aria-live="polite"></span>
+    <audio id="gh-listen-audio" preload="metadata" hidden=""></audio>
   </div>
 </div>
 
@@ -457,6 +458,7 @@ ul.task-list li input[type="checkbox"] {
   const listenToggle = document.getElementById("gh-listen-toggle");
   const listenStop = document.getElementById("gh-listen-stop");
   const listenStatus = document.getElementById("gh-listen-status");
+  const listenAudio = document.getElementById("gh-listen-audio");
 
   if (!toolbar || !labelEl || !countEl || !siteCountEl) return;
 
@@ -488,10 +490,7 @@ ul.task-list li input[type="checkbox"] {
 
   const readCounter = async (name, { bump }) => {
     const base = `${API}/${NAMESPACE}/${name}`;
-    const urls = bump
-      ? [`${base}/up`, `${base}/`]
-      : [`${base}/`, `${base}`];
-
+    const urls = bump ? [`${base}/up`, `${base}/`] : [`${base}/`, `${base}`];
     let lastError = null;
     for (const url of urls) {
       try {
@@ -529,29 +528,20 @@ ul.task-list li input[type="checkbox"] {
     }
   };
 
-  // Page / article counter
   readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
     .then((n) => { countEl.textContent = formatCount(n); })
     .catch(() => { countEl.textContent = "–"; });
 
-  // Site-wide visits
   readCounter("site", { bump: bumpOnce("gh-viewed:site") })
     .then((n) => { siteCountEl.textContent = formatCount(n); })
     .catch(() => { siteCountEl.textContent = "–"; });
 
-  // --- Listen to this article (Web Speech API) ---
-  if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus) return;
-  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") return;
+  // --- Kokoro MP3 listen (pre-generated) ---
+  if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
 
-  listenRoot.hidden = false;
-
-  const synth = window.speechSynthesis;
-  let speaking = false;
-  let paused = false;
+  const audioUrl = new URL("audio.mp3", window.location.href).href;
 
   const setIdle = () => {
-    speaking = false;
-    paused = false;
     listenToggle.textContent = "Listen to this article";
     listenToggle.setAttribute("aria-pressed", "false");
     listenStop.hidden = true;
@@ -559,8 +549,6 @@ ul.task-list li input[type="checkbox"] {
   };
 
   const setPlaying = () => {
-    speaking = true;
-    paused = false;
     listenToggle.textContent = "Pause";
     listenToggle.setAttribute("aria-pressed", "true");
     listenStop.hidden = false;
@@ -568,119 +556,53 @@ ul.task-list li input[type="checkbox"] {
   };
 
   const setPaused = () => {
-    speaking = true;
-    paused = true;
     listenToggle.textContent = "Resume";
     listenToggle.setAttribute("aria-pressed", "true");
     listenStop.hidden = false;
     listenStatus.textContent = "Paused";
   };
 
-  const pickVoice = () => {
-    const voices = synth.getVoices();
-    if (!voices.length) return null;
-    const en = voices.filter((v) => /^en([-_]|$)/i.test(v.lang));
-    const pool = en.length ? en : voices;
-    return (
-      pool.find((v) => /premium|enhanced|natural|neural/i.test(v.name)) ||
-      pool.find((v) => /english/i.test(v.name)) ||
-      pool[0] ||
-      null
-    );
-  };
-
-  const articleText = () => {
-    const main =
-      document.querySelector("main#quarto-document-content") ||
-      document.querySelector("#quarto-document-content") ||
-      document.querySelector("main");
-    if (!main) return "";
-
-    const clone = main.cloneNode(true);
-    clone.querySelectorAll([
-      "script",
-      "style",
-      "nav",
-      "button",
-      "form",
-      "pre",
-      "code",
-      ".giscus",
-      ".gh-toolbar",
-      ".gh-engagement",
-      ".gh-listen",
-      ".quarto-title-meta",
-      "#title-block-header",
-      ".page-navigation",
-      ".toc-actions",
-      "iframe",
-      "svg",
-    ].join(",")).forEach((el) => el.remove());
-
-    clone.querySelectorAll("img[alt]").forEach((img) => {
-      const alt = (img.getAttribute("alt") || "").trim();
-      if (!alt) return;
-      img.replaceWith(document.createTextNode(` Image: ${alt}. `));
-    });
-
-    let text = (clone.innerText || clone.textContent || "")
-      .replace(/\u00a0/g, " ")
-      .replace(/[ \t]+\n/g, "\n")
-      .replace(/\n{3,}/g, "\n\n")
-      .replace(/[ \t]{2,}/g, " ")
-      .trim();
-
-    const title = document.querySelector("h1.title, header#title-block-header h1");
-    if (title && title.textContent) {
-      text = `${title.textContent.trim()}.\n\n${text}`;
-    }
-    return text;
-  };
-
   const stop = () => {
-    synth.cancel();
+    listenAudio.pause();
+    listenAudio.currentTime = 0;
     setIdle();
   };
 
-  const start = () => {
-    const text = articleText();
-    if (!text) {
-      listenStatus.textContent = "Nothing to read on this page.";
-      return;
-    }
+  fetch(audioUrl, { method: "HEAD", cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error("missing audio");
+      listenAudio.src = audioUrl;
+      listenRoot.hidden = false;
+      setIdle();
+    })
+    .catch(() => {
+      listenRoot.hidden = true;
+    });
 
-    synth.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1;
-    utterance.pitch = 1;
-    const voice = pickVoice();
-    if (voice) utterance.voice = voice;
-    utterance.lang = (voice && voice.lang) || "en-GB";
-    utterance.onstart = () => setPlaying();
-    utterance.onend = () => setIdle();
-    utterance.onerror = () => setIdle();
-    setPlaying();
-    synth.speak(utterance);
-  };
+  listenAudio.addEventListener("play", setPlaying);
+  listenAudio.addEventListener("playing", setPlaying);
+  listenAudio.addEventListener("pause", () => {
+    if (!listenAudio.ended && listenAudio.currentTime > 0) setPaused();
+  });
+  listenAudio.addEventListener("ended", setIdle);
+  listenAudio.addEventListener("error", () => {
+    listenStatus.textContent = "Audio could not be loaded.";
+    setIdle();
+  });
 
-  listenToggle.addEventListener("click", () => {
-    if (!speaking) {
-      start();
+  listenToggle.addEventListener("click", async () => {
+    if (listenAudio.paused) {
+      try {
+        await listenAudio.play();
+      } catch (_) {
+        listenStatus.textContent = "Playback was blocked by the browser.";
+      }
       return;
     }
-    if (paused) {
-      synth.resume();
-      setPlaying();
-      return;
-    }
-    synth.pause();
-    setPaused();
+    listenAudio.pause();
   });
 
   listenStop.addEventListener("click", stop);
-  if (typeof synth.addEventListener === "function") {
-    synth.addEventListener("voiceschanged", () => {});
-  }
   window.addEventListener("beforeunload", stop);
 })();
 </script>
