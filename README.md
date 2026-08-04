@@ -22,7 +22,7 @@ CV workspace; the reviewed website CV is stored at:
 | `articles/` | Quarto listing of short notes under `articles/<date-slug>/` |
 | `resume.qmd` | CV page (PDF embed + searchable text) |
 | `styles.css` | Site theme, navbar, article/project layout |
-| `includes/` | Shared HTML/Markdown includes (GitHub engagement, CV search text) |
+| `includes/` | Shared HTML/Markdown includes (`gh-engagement.html`, `_cv-search-text.md`) |
 | `gh-audio/` | Kokoro narration MP3s (GitHub Pages only) |
 | `scripts/generate_article_audio.py` | Regenerate article listen audio |
 | `writing/` | Thin redirect stub to `articles/` |
@@ -48,9 +48,10 @@ CV workspace; the reviewed website CV is stored at:
   navigation and metadata. Body measure targets about 66 characters.
 - CV page embeds the reviewed two-page Option C PDF with download and email
   controls. Because Quarto search cannot index PDF iframe content, the CV text
-  is also included (visually hidden) from `includes/cv-search-text.md` so terms
+  is also included (visually hidden) from `includes/_cv-search-text.md` so terms
   such as employer names remain searchable. When the PDF is replaced, refresh
-  that include to match.
+  that include to match. The leading underscore keeps Quarto from publishing it
+  as its own page.
 - Prose avoids em dashes; date ranges retain their normal range punctuation.
 
 ## Local development
@@ -76,9 +77,11 @@ quarto render --profile github
 ### Quarto Pub (primary)
 
 Do **not** use the `github` profile here: keep `gh-audio/` out of the Quarto Pub
-bundle (size limit). Destination is recorded in `_publish.yml`:
+bundle (size limit). Clear a leftover `_site` from a GitHub-profile render first if
+needed. Destination is recorded in `_publish.yml`:
 
 ```bash
+rm -rf _site
 quarto publish quarto-pub --no-prompt --no-browser
 ```
 
