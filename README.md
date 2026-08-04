@@ -32,10 +32,11 @@ CV workspace; the reviewed website CV is stored at:
 - Personal location: `Basel, Switzerland`.
 - CSEM and Idorsia experience entries retain `Allschwil, Switzerland` as the
   employment location.
-- Navbar: brand, About / Projects / Articles / CV, social icons, theme toggle,
-  and search are **center-aligned** as one group. The hamburger is hidden; the
-  nav stays open. Icon and link spacing is even; the search glyph matches other
-  icon sizes. The yellow portfolio focus ring is suppressed on the search input.
+- Navbar: brand and About / Projects / Articles / CV stay on the left; social
+  icons, theme toggle, and search stay on the right. Items are **vertically
+  centered** in the bar. The hamburger is hidden; the nav stays open. Icon and
+  link spacing is even; the search glyph matches other icon sizes. The yellow
+  portfolio focus ring is suppressed on the search input.
 - Homepage uses persistent navigation and footer for Projects, Articles, CV,
   email, LinkedIn, and GitHub. No separate CTA button rows in the page body.
 - Projects stay on `projects.qmd` as featured case studies. Each project heading
