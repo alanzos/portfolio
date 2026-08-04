@@ -32,7 +32,7 @@
     "href": "projects.html#evaluating-binary-classifiers-beyond-accuracy",
     "title": "Selected Projects",
     "section": "Evaluating binary classifiers beyond accuracy",
-    "text": "Evaluating binary classifiers beyond accuracy\n\n\n\n\nChoosing metrics that match biomedical decisions\nAccuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.\nRead the LinkedIn article or inspect the reproducible code and examples on GitHub.\nFocus: model evaluation · imbalanced classification · statistical reasoning · technical communication\n\n\n\n\n\nIllustration comparing precision and accuracy"
+    "text": "Evaluating binary classifiers beyond accuracy\n\n\n\n\nChoosing metrics that match biomedical decisions\nAccuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.\nRead the article or inspect the reproducible code and examples on GitHub.\nFocus: model evaluation · imbalanced classification · statistical reasoning · technical communication\n\n\n\n\n\nIllustration comparing precision and accuracy"
   },
   {
     "objectID": "projects.html#vitatracer",
