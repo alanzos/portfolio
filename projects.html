@@ -503,184 +503,194 @@ ul.task-list li input[type="checkbox"] {
 
 <script>
 (() => {
-  const NAMESPACE = "alanzosportfolio";
-  const API = "https://api.counterapi.dev/v1";
+  const boot = () => {
+    const NAMESPACE = "alanzosportfolio";
+    const API = "https://api.counterapi.dev/v1";
 
-  const toolbar = document.getElementById("gh-toolbar");
-  const labelEl = document.getElementById("gh-engagement-label");
-  const countEl = document.getElementById("gh-engagement-count");
-  const siteStat = document.getElementById("gh-site-stat");
-  const siteCountEl = document.getElementById("gh-site-count");
-  const listenRoot = document.getElementById("gh-listen");
-  const listenToggle = document.getElementById("gh-listen-toggle");
-  const listenStop = document.getElementById("gh-listen-stop");
-  const listenStatus = document.getElementById("gh-listen-status");
-  const listenAudio = document.getElementById("gh-listen-audio");
+    const toolbar = document.getElementById("gh-toolbar");
+    const labelEl = document.getElementById("gh-engagement-label");
+    const countEl = document.getElementById("gh-engagement-count");
+    const siteStat = document.getElementById("gh-site-stat");
+    const siteCountEl = document.getElementById("gh-site-count");
+    const listenRoot = document.getElementById("gh-listen");
+    const listenToggle = document.getElementById("gh-listen-toggle");
+    const listenStop = document.getElementById("gh-listen-stop");
+    const listenStatus = document.getElementById("gh-listen-status");
+    const listenAudio = document.getElementById("gh-listen-audio");
 
-  if (!toolbar || !countEl || !siteStat || !siteCountEl) return;
+    if (!toolbar || !countEl || !siteStat || !siteCountEl) return;
 
-  const path = (window.location.pathname || "/")
-    .replace(/\/index\.html$/, "")
-    .replace(/\/+$/, "") || "/";
-  const isArticle = /\/articles\/20\d{2}-/.test(path);
+    const path = (window.location.pathname || "/")
+      .replace(/\/index\.html$/, "")
+      .replace(/\/+$/, "") || "/";
+    const isArticle = /\/articles\/20\d{2}-/.test(path);
 
-  const pageKey = path
-    .replace(/^\/portfolio/, "")
-    .replace(/^\/+|\/+$/g, "")
-    .replace(/\.html$/, "")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .toLowerCase() || "home";
+    const pageKey = path
+      .replace(/^\/portfolio/, "")
+      .replace(/^\/+|\/+$/g, "")
+      .replace(/\.html$/, "")
+      .replace(/[^a-zA-Z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .toLowerCase() || "home";
 
-  const formatCount = (n) => Number(n).toLocaleString("en-GB");
+    const formatCount = (n) => Number(n).toLocaleString("en-GB");
 
-  const readCounter = async (name, { bump }) => {
-    const base = `${API}/${NAMESPACE}/${name}`;
-    const urls = bump ? [`${base}/up`, `${base}/`] : [`${base}/`, `${base}`];
-    let lastError = null;
-    for (const url of urls) {
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          mode: "cors",
-          cache: "no-store",
-          credentials: "omit",
-        });
-        if (!response.ok) {
-          lastError = new Error(`HTTP ${response.status}`);
-          continue;
+    const readCounter = async (name, { bump }) => {
+      const base = `${API}/${NAMESPACE}/${name}`;
+      const urls = bump ? [`${base}/up`, `${base}/`] : [`${base}/`, `${base}`];
+      let lastError = null;
+      for (const url of urls) {
+        try {
+          const response = await fetch(url, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-store",
+            credentials: "omit",
+          });
+          if (!response.ok) {
+            lastError = new Error(`HTTP ${response.status}`);
+            continue;
+          }
+          const data = await response.json();
+          const n = data && (data.count ?? data.value);
+          if (n == null) {
+            lastError = new Error("missing count");
+            continue;
+          }
+          return Number(n);
+        } catch (err) {
+          lastError = err;
         }
-        const data = await response.json();
-        const n = data && (data.count ?? data.value);
-        if (n == null) {
-          lastError = new Error("missing count");
-          continue;
-        }
-        return Number(n);
-      } catch (err) {
-        lastError = err;
       }
-    }
-    throw lastError || new Error("counter failed");
-  };
+      throw lastError || new Error("counter failed");
+    };
 
-  const bumpOnce = (storageKey) => {
-    try {
-      if (sessionStorage.getItem(storageKey) === "1") return false;
-      sessionStorage.setItem(storageKey, "1");
-      return true;
-    } catch (_) {
-      return true;
-    }
-  };
-
-  // Site visits: always in the footer.
-  const footerHost =
-    document.querySelector(".nav-footer-left") ||
-    document.querySelector(".nav-footer-center") ||
-    document.querySelector("footer.footer .nav-footer") ||
-    document.querySelector("footer");
-  if (footerHost) {
-    footerHost.appendChild(siteStat);
-    siteStat.hidden = false;
-  }
-
-  readCounter("site", { bump: bumpOnce("gh-viewed:site") })
-    .then((n) => { siteCountEl.textContent = formatCount(n); })
-    .catch(() => { siteCountEl.textContent = "–"; });
-
-  // Article toolbar: reads + listen only on articles.
-  if (!isArticle) {
-    toolbar.remove();
-    return;
-  }
-
-  if (labelEl) labelEl.textContent = "Article reads";
-
-  const anchor =
-    document.querySelector("header#title-block-header") ||
-    document.querySelector(".quarto-title-meta") ||
-    document.querySelector("main#quarto-document-content");
-  if (anchor && anchor.parentNode) {
-    anchor.insertAdjacentElement("afterend", toolbar);
-  }
-  toolbar.hidden = false;
-
-  readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
-    .then((n) => { countEl.textContent = formatCount(n); })
-    .catch(() => { countEl.textContent = "–"; });
-
-  if (!listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
-
-  const slugMatch = path.match(/\/articles\/(20\d{2}-[^/]+)/);
-  const audioUrl = slugMatch
-    ? new URL(`../../gh-audio/${slugMatch[1]}/narration.mp3`, window.location.href).href
-    : "";
-  if (!audioUrl) return;
-
-  const setIdle = () => {
-    listenToggle.textContent = "Listen to this article";
-    listenToggle.setAttribute("aria-pressed", "false");
-    listenStop.hidden = true;
-    listenStatus.textContent = "";
-  };
-
-  const setPlaying = () => {
-    listenToggle.textContent = "Pause";
-    listenToggle.setAttribute("aria-pressed", "true");
-    listenStop.hidden = false;
-    listenStatus.textContent = "Playing";
-  };
-
-  const setPaused = () => {
-    listenToggle.textContent = "Resume";
-    listenToggle.setAttribute("aria-pressed", "true");
-    listenStop.hidden = false;
-    listenStatus.textContent = "Paused";
-  };
-
-  const stop = () => {
-    listenAudio.pause();
-    listenAudio.currentTime = 0;
-    setIdle();
-  };
-
-  fetch(audioUrl, { method: "HEAD", cache: "no-store" })
-    .then((r) => {
-      if (!r.ok) throw new Error("missing audio");
-      listenAudio.src = audioUrl;
-      listenRoot.hidden = false;
-      setIdle();
-    })
-    .catch(() => {
-      listenRoot.hidden = true;
-    });
-
-  listenAudio.addEventListener("play", setPlaying);
-  listenAudio.addEventListener("playing", setPlaying);
-  listenAudio.addEventListener("pause", () => {
-    if (!listenAudio.ended && listenAudio.currentTime > 0) setPaused();
-  });
-  listenAudio.addEventListener("ended", setIdle);
-  listenAudio.addEventListener("error", () => {
-    listenStatus.textContent = "Audio could not be loaded.";
-    setIdle();
-  });
-
-  listenToggle.addEventListener("click", async () => {
-    if (listenAudio.paused) {
+    const bumpOnce = (storageKey) => {
       try {
-        await listenAudio.play();
+        if (sessionStorage.getItem(storageKey) === "1") return false;
+        sessionStorage.setItem(storageKey, "1");
+        return true;
       } catch (_) {
-        listenStatus.textContent = "Playback was blocked by the browser.";
+        return true;
       }
+    };
+
+    // Site visits: always in the footer (must wait until footer exists).
+    const footerHost =
+      document.querySelector(".nav-footer-left") ||
+      document.querySelector(".nav-footer-center") ||
+      document.querySelector("footer.footer .nav-footer") ||
+      document.querySelector("footer.footer") ||
+      document.querySelector("footer");
+
+    if (footerHost) {
+      footerHost.appendChild(siteStat);
+      siteStat.hidden = false;
+    }
+
+    readCounter("site", { bump: bumpOnce("gh-viewed:site") })
+      .then((n) => { siteCountEl.textContent = formatCount(n); })
+      .catch(() => { siteCountEl.textContent = "–"; });
+
+    // Article toolbar: reads + listen only on articles.
+    if (!isArticle) {
+      toolbar.remove();
       return;
     }
-    listenAudio.pause();
-  });
 
-  listenStop.addEventListener("click", stop);
-  window.addEventListener("beforeunload", stop);
+    if (labelEl) labelEl.textContent = "Article reads";
+
+    const anchor =
+      document.querySelector("header#title-block-header") ||
+      document.querySelector(".quarto-title-meta") ||
+      document.querySelector("main#quarto-document-content");
+    if (anchor && anchor.parentNode) {
+      anchor.insertAdjacentElement("afterend", toolbar);
+    }
+    toolbar.hidden = false;
+
+    readCounter(pageKey, { bump: bumpOnce(`gh-viewed:${pageKey}`) })
+      .then((n) => { countEl.textContent = formatCount(n); })
+      .catch(() => { countEl.textContent = "–"; });
+
+    if (!listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
+
+    const slugMatch = path.match(/\/articles\/(20\d{2}-[^/]+)/);
+    const audioUrl = slugMatch
+      ? new URL(`../../gh-audio/${slugMatch[1]}/narration.mp3`, window.location.href).href
+      : "";
+    if (!audioUrl) return;
+
+    const setIdle = () => {
+      listenToggle.textContent = "Listen to this article";
+      listenToggle.setAttribute("aria-pressed", "false");
+      listenStop.hidden = true;
+      listenStatus.textContent = "";
+    };
+
+    const setPlaying = () => {
+      listenToggle.textContent = "Pause";
+      listenToggle.setAttribute("aria-pressed", "true");
+      listenStop.hidden = false;
+      listenStatus.textContent = "Playing";
+    };
+
+    const setPaused = () => {
+      listenToggle.textContent = "Resume";
+      listenToggle.setAttribute("aria-pressed", "true");
+      listenStop.hidden = false;
+      listenStatus.textContent = "Paused";
+    };
+
+    const stop = () => {
+      listenAudio.pause();
+      listenAudio.currentTime = 0;
+      setIdle();
+    };
+
+    fetch(audioUrl, { method: "HEAD", cache: "no-store" })
+      .then((r) => {
+        if (!r.ok) throw new Error("missing audio");
+        listenAudio.src = audioUrl;
+        listenRoot.hidden = false;
+        setIdle();
+      })
+      .catch(() => {
+        listenRoot.hidden = true;
+      });
+
+    listenAudio.addEventListener("play", setPlaying);
+    listenAudio.addEventListener("playing", setPlaying);
+    listenAudio.addEventListener("pause", () => {
+      if (!listenAudio.ended && listenAudio.currentTime > 0) setPaused();
+    });
+    listenAudio.addEventListener("ended", setIdle);
+    listenAudio.addEventListener("error", () => {
+      listenStatus.textContent = "Audio could not be loaded.";
+      setIdle();
+    });
+
+    listenToggle.addEventListener("click", async () => {
+      if (listenAudio.paused) {
+        try {
+          await listenAudio.play();
+        } catch (_) {
+          listenStatus.textContent = "Playback was blocked by the browser.";
+        }
+        return;
+      }
+      listenAudio.pause();
+    });
+
+    listenStop.addEventListener("click", stop);
+    window.addEventListener("beforeunload", stop);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
