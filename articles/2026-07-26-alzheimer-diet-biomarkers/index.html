@@ -419,6 +419,69 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<!-- GitHub Pages only: per-page read / view counters -->
+<div id="gh-engagement" class="gh-engagement" hidden="" aria-live="polite">
+  <span class="gh-engagement-label" id="gh-engagement-label">Reads</span>
+  <span class="gh-engagement-count" id="gh-engagement-count">–</span>
+</div>
+
+<script>
+(() => {
+  const NAMESPACE = "alanzosportfolio";
+  const API = "https://api.counterapi.dev/v1";
+  const root = document.getElementById("gh-engagement");
+  const labelEl = document.getElementById("gh-engagement-label");
+  const countEl = document.getElementById("gh-engagement-count");
+  if (!root || !labelEl || !countEl) return;
+
+  const path = (window.location.pathname || "/").replace(/\/index\.html$/, "").replace(/\/+$/, "") || "/";
+  const isArticle = /\/articles\/20\d{2}-/.test(path);
+
+  const key = path
+    .replace(/^\/portfolio/, "")
+    .replace(/^\/+|\/+$/g, "")
+    .replace(/\.html$/, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase() || "home";
+
+  labelEl.textContent = isArticle ? "Article reads" : "Page views";
+
+  // Place the counter under the title block when possible.
+  const anchor =
+    document.querySelector(".quarto-title-meta") ||
+    document.querySelector("header#title-block-header") ||
+    document.querySelector(".quarto-about-jolla") ||
+    document.querySelector("main#quarto-document-content");
+  if (anchor && anchor.parentNode) {
+    anchor.insertAdjacentElement("afterend", root);
+  }
+
+  const sessionKey = `gh-viewed:${key}`;
+  let already = false;
+  try { already = sessionStorage.getItem(sessionKey) === "1"; } catch (_) {}
+
+  const endpoint = already
+    ? `${API}/${NAMESPACE}/${encodeURIComponent(key)}/`
+    : `${API}/${NAMESPACE}/${encodeURIComponent(key)}/up`;
+
+  fetch(endpoint, { method: "GET", mode: "cors" })
+    .then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    })
+    .then((data) => {
+      const n = data && (data.count ?? data.value);
+      if (n == null) throw new Error("missing count");
+      countEl.textContent = Number(n).toLocaleString("en-GB");
+      root.hidden = false;
+      if (!already) {
+        try { sessionStorage.setItem(sessionKey, "1"); } catch (_) {}
+      }
+    })
+    .catch(() => { root.hidden = true; });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -839,6 +902,38 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="dark">
+<input type="hidden" id="giscus-alt-theme" value="light">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "alanzos/portfolio";
+    script.dataset.repoId = "R_kgDOI50biQ";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOI50bic4DCqaX";
+    script.dataset.mapping = "pathname";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

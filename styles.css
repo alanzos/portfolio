@@ -938,3 +938,36 @@ section#references ol {
     transition: none !important;
   }
 }
+
+/* GitHub Pages engagement + comments */
+.gh-engagement {
+  align-items: baseline;
+  color: var(--portfolio-muted);
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  gap: 0.45rem;
+  letter-spacing: 0.01em;
+  margin: 0.35rem 0 1.25rem;
+}
+
+.gh-engagement-label::after {
+  content: ":";
+}
+
+.gh-engagement-count {
+  color: var(--portfolio-ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+#quarto-content .giscus,
+.giscus {
+  margin: 2.5rem auto 1rem;
+  max-width: var(--measure);
+}
+
+.giscus-frame {
+  min-height: 12rem;
+}
+

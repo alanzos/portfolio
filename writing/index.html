@@ -335,6 +335,69 @@ ul.task-list li input[type="checkbox"] {
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<!-- GitHub Pages only: per-page read / view counters -->
+<div id="gh-engagement" class="gh-engagement" hidden="" aria-live="polite">
+  <span class="gh-engagement-label" id="gh-engagement-label">Reads</span>
+  <span class="gh-engagement-count" id="gh-engagement-count">–</span>
+</div>
+
+<script>
+(() => {
+  const NAMESPACE = "alanzosportfolio";
+  const API = "https://api.counterapi.dev/v1";
+  const root = document.getElementById("gh-engagement");
+  const labelEl = document.getElementById("gh-engagement-label");
+  const countEl = document.getElementById("gh-engagement-count");
+  if (!root || !labelEl || !countEl) return;
+
+  const path = (window.location.pathname || "/").replace(/\/index\.html$/, "").replace(/\/+$/, "") || "/";
+  const isArticle = /\/articles\/20\d{2}-/.test(path);
+
+  const key = path
+    .replace(/^\/portfolio/, "")
+    .replace(/^\/+|\/+$/g, "")
+    .replace(/\.html$/, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase() || "home";
+
+  labelEl.textContent = isArticle ? "Article reads" : "Page views";
+
+  // Place the counter under the title block when possible.
+  const anchor =
+    document.querySelector(".quarto-title-meta") ||
+    document.querySelector("header#title-block-header") ||
+    document.querySelector(".quarto-about-jolla") ||
+    document.querySelector("main#quarto-document-content");
+  if (anchor && anchor.parentNode) {
+    anchor.insertAdjacentElement("afterend", root);
+  }
+
+  const sessionKey = `gh-viewed:${key}`;
+  let already = false;
+  try { already = sessionStorage.getItem(sessionKey) === "1"; } catch (_) {}
+
+  const endpoint = already
+    ? `${API}/${NAMESPACE}/${encodeURIComponent(key)}/`
+    : `${API}/${NAMESPACE}/${encodeURIComponent(key)}/up`;
+
+  fetch(endpoint, { method: "GET", mode: "cors" })
+    .then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    })
+    .then((data) => {
+      const n = data && (data.count ?? data.value);
+      if (n == null) throw new Error("missing count");
+      countEl.textContent = Number(n).toLocaleString("en-GB");
+      root.hidden = false;
+      if (!already) {
+        try { sessionStorage.setItem(sessionKey, "1"); } catch (_) {}
+      }
+    })
+    .catch(() => { root.hidden = true; });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
