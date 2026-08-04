@@ -531,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
   // --- Kokoro MP3 listen (pre-generated) ---
   if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus || !listenAudio) return;
 
-  const audioUrl = new URL("audio.mp3", window.location.href).href;
+  const audioUrl = new URL("narration.mp3", window.location.href).href;
 
   const setIdle = () => {
     listenToggle.textContent = "Listen to this article";
