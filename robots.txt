@@ -1,1 +1,1 @@
-Sitemap: https://alanzos.github.io/portfolio/sitemap.xml
+Sitemap: https://andreslanzos.quarto.pub/portfolio/sitemap.xml
