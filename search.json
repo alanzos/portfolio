@@ -287,38 +287,10 @@
     "text": "Email\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     GitHub\n  \n  \n    \n     Scholar\n  \n  \n    \n     ORCID"
   },
   {
-    "objectID": "index.html#evidence-at-a-glance",
-    "href": "index.html#evidence-at-a-glance",
+    "objectID": "index.html#on-this-website",
+    "href": "index.html#on-this-website",
     "title": "Andres Lanzos",
-    "section": "Evidence at a glance",
-    "text": "Evidence at a glance\n\n\n4x\nSensitivity versus the best clinical tools at matched specificity in an ML disease-risk pipeline.\n\n\nCHF 700k\nDilutive and non-dilutive funding raised for a preventive-health venture.\n\n\nCHF 1M+\nCross-functional scientific programmes led in biotech and pharma environments.\n\n\n1,452\nGoogle Scholar citations across eight publications, with an h-index of 7."
-  },
-  {
-    "objectID": "index.html#what-i-bring",
-    "href": "index.html#what-i-bring",
-    "title": "Andres Lanzos",
-    "section": "What I bring",
-    "text": "What I bring\n\n\nTranslational science\nTarget and biomarker discovery, oncology, immunology, multi-omics, proteomics, metabolomics, bulk and single-cell RNA-seq, clinical data and real-world data.\n\n\nData science and engineering\nPython, R, SQL, machine learning, survival and differential analyses, AWS, Linux, Git/GitLab, Nextflow, nf-core, high-performance computing and Shiny.\n\n\nProduct and delivery\nFrom scientific discovery to operational products: GCP/GxP, product design, regulatory strategy, cloud infrastructure, stakeholder management, negotiations, customer acquisition and user testing."
-  },
-  {
-    "objectID": "index.html#selected-experience",
-    "href": "index.html#selected-experience",
-    "title": "Andres Lanzos",
-    "section": "Selected experience",
-    "text": "Selected experience\n\n\nCSEM · Entrepreneur, Idunox Startup Project\n05/2024–07/2026 · Allschwil, Switzerland\nDeveloped an ML pipeline from raw data to disease risks and explainable markers, achieving 4x sensitivity at matched specificity. Raised CHF 700k and led R&D strategy for a team of five across data and AI workflows, legal and ethics frameworks, governance, providers and supply chain.\n\n\nIdorsia Pharmaceuticals · Data Scientist\n09/2022–04/2024 · Allschwil, Switzerland · Translational Biomarkers, Drug Discovery Biology\nDiscovered targets, biomarkers, mechanisms of action and indications in oncology and immunology using omics and real-world data. Built automated Nextflow/nf-core pipelines in GitLab and AWS and served as lead scientist on a CHF 1M+ programme.\n\n\nBiognosys · Data Scientist\n05/2020–08/2022 · Schlieren, Switzerland\nDeveloped proteomics data products, R algorithms and Shiny applications; designed SQL databases for clinical data under GCP/GxP constraints; and led a CHF 1M+ cross-functional programme spanning science, IT, legal, regulatory, operations and wet-lab teams."
-  },
-  {
-    "objectID": "index.html#research-that-translates",
-    "href": "index.html#research-that-translates",
-    "title": "Andres Lanzos",
-    "section": "Research that translates",
-    "text": "Research that translates\nMy academic work focused on cancer genomics and long non-coding RNA drivers. I developed ExInAtor, contributed one of 13 methods selected by the PCAWG consortium, and co-first-authored research connecting non-coding mutations with cancer cell fitness.\n\n\nTumour mutations in long noncoding RNAs enhance cell fitness\nNature Communications, 2023 · Co-first author · 25 citations\n\n\nAnalyses of non-coding somatic drivers in 2,658 cancer whole genomes\nNature, 2020 · Developer of one of 13 PCAWG-selected methods · 762 citations\n\n\n\nCitation snapshot updated 16 July 2026. See the complete record on Google Scholar."
-  },
-  {
-    "objectID": "index.html#lets-work-together",
-    "href": "index.html#lets-work-together",
-    "title": "Andres Lanzos",
-    "section": "Let’s work together",
-    "text": "Let’s work together\nI am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together, particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech."
+    "section": "On this website",
+    "text": "On this website\n\n\nProjects\nSelected scientific software and applied analytics, from discovery methods to usable tools.\n\n\nArticles\nShort notes on biomarkers, prevention, ageing and biomedical data science.\n\n\nCV\nExperience, education, publications and contact details in one place."
   }
 ]
