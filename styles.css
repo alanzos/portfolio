@@ -91,19 +91,20 @@ a {
   width: 100%;
 }
 
-.navbar-brand-container {
+.navbar .navbar-brand-container {
   align-items: center;
   display: flex;
   margin: 0 var(--navbar-left-gap) 0 0 !important;
+  padding: 0 !important;
 }
 
-.navbar-brand {
+.navbar .navbar-brand {
   align-items: center;
   display: inline-flex;
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1;
-  margin: 0;
+  margin: 0 !important;
   padding: 0 !important;
 }
 
