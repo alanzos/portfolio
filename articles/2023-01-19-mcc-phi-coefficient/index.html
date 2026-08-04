@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
+<meta name="dcterms.date" content="2023-01-19">
+<meta name="description" content="Three failure modes for PPV, accuracy, F-score and Youden’s J, and why the Phi coefficient / Matthews correlation coefficient is more robust.">
 
-<title>Selected Projects – Andres Lanzos</title>
+<title>Why I stopped using precision and accuracy for binary classification – Andres Lanzos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,29 +22,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./jpg/photo.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-703069f40e948ba70f3f3e6eba71fad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-fc15bee6fe409d5dc7e34485bd7b8a48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../jpg/photo.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-703069f40e948ba70f3f3e6eba71fad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fc15bee6fe409d5dc7e34485bd7b8a48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,18 +112,16 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&amp;display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Selected Projects – Andres Lanzos">
-<meta property="og:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
-<meta property="og:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Why I stopped using precision and accuracy for binary classification – Andres Lanzos">
+<meta property="og:description" content="Three failure modes for PPV, accuracy, F-score and Youden’s J, and why the Phi coefficient / Matthews correlation coefficient is more robust.">
+<meta property="og:image" content="https://alanzos.github.io/portfolio/articles/2023-01-19-mcc-phi-coefficient/image.jpg">
 <meta property="og:site_name" content="Andres Lanzos">
-<meta property="og:image:height" content="1478">
-<meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="Selected Projects – Andres Lanzos">
-<meta name="twitter:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
-<meta name="twitter:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
-<meta name="twitter:image-height" content="1478">
-<meta name="twitter:image-width" content="1920">
+<meta property="og:image:alt" content="Illustration comparing precision and accuracy">
+<meta name="twitter:title" content="Why I stopped using precision and accuracy for binary classification – Andres Lanzos">
+<meta name="twitter:description" content="Three failure modes for PPV, accuracy, F-score and Youden’s J, and why the Phi coefficient / Matthews correlation coefficient is more robust.">
+<meta name="twitter:image" content="https://alanzos.github.io/portfolio/articles/2023-01-19-mcc-phi-coefficient/image.jpg">
+<meta name="twitter:image:alt" content="Illustration comparing precision and accuracy">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -258,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Andres Lanzos</span>
     </a>
   </div>
@@ -269,19 +303,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./articles/index.html"> 
+    <a class="nav-link" href="../../articles/index.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../../resume.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -310,41 +344,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Projects</h2>
-   
-  <ul>
-  <li><a href="#d-protein-explorer" id="toc-d-protein-explorer" class="nav-link active" data-scroll-target="#d-protein-explorer">3D Protein Explorer</a></li>
-  <li><a href="#exinator-and-exinator2" id="toc-exinator-and-exinator2" class="nav-link" data-scroll-target="#exinator-and-exinator2">ExInAtor and ExInAtor2</a></li>
-  <li><a href="#evaluating-binary-classifiers-beyond-accuracy" id="toc-evaluating-binary-classifiers-beyond-accuracy" class="nav-link" data-scroll-target="#evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</a></li>
-  <li><a href="#vitatracer" id="toc-vitatracer" class="nav-link" data-scroll-target="#vitatracer">VitaTracer</a></li>
-  <li><a href="#investment-diversification-explorer" id="toc-investment-diversification-explorer" class="nav-link" data-scroll-target="#investment-diversification-explorer">Investment-diversification explorer</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Selected Projects</h1>
-</div>
+<h1 class="title">Why I stopped using precision and accuracy for binary classification</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Machine learning</div>
+    <div class="quarto-category">Statistics</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.
+    Three failure modes for PPV, accuracy, F-score and Youden’s J, and why the Phi coefficient / Matthews correlation coefficient is more robust.
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 19, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -354,122 +388,127 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.</p>
-<section id="d-protein-explorer" class="level2">
-<h2 class="anchored" data-anchor-id="d-protein-explorer">3D Protein Explorer</h2>
-<div class="project-feature">
-<div class="columns">
-<div class="column" style="width:58%;">
-<section id="connecting-mass-spectrometry-with-protein-structure" class="level3">
-<h3 class="anchored" data-anchor-id="connecting-mass-spectrometry-with-protein-structure">Connecting mass spectrometry with protein structure</h3>
-<p>While working in R&amp;D at <a href="https://biognosysgroup.com/">Biognosys</a>, I identified an opportunity to connect newly released AlphaFold structures with the company’s proteomics coverage. The resulting <a href="https://biognosys.shinyapps.io/3D_protein_explorer/">3D Protein Explorer</a> lets users select a protein and see which regions are observed by mass spectrometry.</p>
-<p>I built the public Shiny application and designed a responsive data-loading approach that could search thousands of proteins without freezing the interface. The project was developed alongside my main work and involved collaboration with business and marketing teams to turn a technical capability into a customer-facing demonstration.</p>
-<p><strong>Focus:</strong> R · Shiny · proteomics · AlphaFold · scientific visualization · product collaboration</p>
-</section>
-</div><div class="column" style="width:42%;">
+<div class="tldr">
+<p><strong>TLDR.</strong> Precision and accuracy can look great while a classifier is useless. The Phi coefficient / Matthews correlation coefficient stays honest across the failure modes that fool the rest.</p>
+</div>
+<p>When dealing with a confusion matrix in a binary classification problem, we might get lost in the dozen performance metrics available, including the usual suspects:</p>
+<ul>
+<li>False Positive Rate (FPR)</li>
+<li>True Positive Rate (TPR), also known as Sensitivity or Recall</li>
+<li>Positive Predictive Value (PPV), also known as Precision</li>
+<li>Accuracy (ACC)</li>
+</ul>
+<p>I faced the same destiny when benchmarking different methods for differential abundance in proteomics data. I tried more than a dozen different performance metrics, starting with PPV and ACC, and I was confused as each one was giving me a different winning method. Let me show you why I stopped using the traditional metrics for one that rules them all.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="png/protein_explorer.png" class="project-image img-fluid figure-img"></p>
-<figcaption>3D Protein Explorer interface</figcaption>
+<p><img src="image.jpg" class="img-fluid figure-img" alt="Illustration comparing precision and accuracy"></p>
+<figcaption>Precision versus a more robust metric</figcaption>
 </figure>
 </div>
-</div>
-</div>
-</div>
+<p>In my proteomic datasets, there were proteins behaving as Expected Positives (EP), since they had an expected fold change of 2 between the two tested conditions “A” and “B”, meaning that they should be differentially abundant. And there were proteins behaving as Expected Negatives (EN), because their expected fold change between the two conditions was 1, meaning that they should not be differentially abundant. Thanks to these datasets:</p>
+<ul>
+<li>Firstly, I performed differential abundance testing with different methods. I classified proteins whose Benjamini-Hochberg adjusted p-value was lower or equal to the cutoff for statistical significance (usually 0.05) as Observed Positives (OP), while I classified the rest of the proteins as Observed Negatives (ON).</li>
+<li>Secondly, I intersected the OP and ON of each method with the EP and EN proteins to build the confusion matrix. This matrix contained the True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN) proteins.</li>
+<li>Finally, I calculated several performance metrics like the standard PPV and ACC for each method to choose the most powerful one. As you will see later, the closer these metrics are to 1, the better the performance of the method is.</li>
+</ul>
+<p>While comparing the results of each performance metric, I realized that there was no overall winner method, because each metric manifested limitations depending on the proteomic dataset that I was using. I will explain these situations below with a very simple R code, so grab some snacks and enjoy the reading.</p>
+<section id="situation-1" class="level3">
+<h3 class="anchored" data-anchor-id="situation-1">Situation 1</h3>
+<p>The big limitation of PPV and ACC is that they ignore the TPR, which could be dangerous in a situation where:</p>
+<ul>
+<li>There are a high number of EN proteins and a low number of EP proteins. This would be a case of class imbalance with a low Prevalence. This situation could happen when comparing the proteome of responders vs non-responders of immune checkpoint blockade, where only a few proteins are expected to be differentially abundant.</li>
+<li>A silly differential abundance method just classifies most proteins as negatives (many ON), except for one or a few TP proteins.</li>
+</ul>
+<p>As exemplified below, PPV and ACC will be high and both will suggest that the silly negative method is great. A metric that could prevent this problem is the F-Score (FS), since it considers the TPR. In consequence, FS will be low in this situation and will flag the silly negative method as having a poor performance.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Low prevalence, and silly negative method</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad for ACC and PPV</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Good for FS</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="dv">199</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>EP <span class="ot">&lt;-</span> TP <span class="sc">+</span> FN</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>EN <span class="ot">&lt;-</span> TN <span class="sc">+</span> FP</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>OP <span class="ot">&lt;-</span> TP <span class="sc">+</span> FP</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>ON <span class="ot">&lt;-</span> TN <span class="sc">+</span> FN</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Prevalence <span class="ot">&lt;-</span> EP <span class="sc">/</span> (EP <span class="sc">+</span> EN)   <span class="co"># 0.09</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>PPV <span class="ot">&lt;-</span> TP <span class="sc">/</span> OP                 <span class="co"># 1.00</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ACC <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (EP <span class="sc">+</span> EN)   <span class="co"># 0.91</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>TPR <span class="ot">&lt;-</span> TP <span class="sc">/</span> EP                 <span class="co"># 0.01</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>FS <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> PPV <span class="sc">*</span> TPR <span class="sc">/</span> (PPV <span class="sc">+</span> TPR)  <span class="co"># 0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exinator-and-exinator2" class="level2">
-<h2 class="anchored" data-anchor-id="exinator-and-exinator2">ExInAtor and ExInAtor2</h2>
-<div class="project-feature">
-<div class="columns">
-<div class="column" style="width:58%;">
-<section id="finding-cancer-driver-long-non-coding-rnas" class="level3">
-<h3 class="anchored" data-anchor-id="finding-cancer-driver-long-non-coding-rnas">Finding cancer-driver long non-coding RNAs</h3>
-<p>During my PhD, I developed <a href="https://github.com/alanzos/ExInAtor">ExInAtor</a>, the first method designed specifically to identify long non-coding RNAs recurrently mutated in cancer. The work was published in <a href="https://www.nature.com/articles/srep41544">Scientific Reports</a>, where I was first author.</p>
-<p>I later developed <a href="https://github.com/gold-lab/ExInAtor2">ExInAtor2</a>, adding functional-impact evidence to mutation frequency and optimizing Python and R workflows to run millions of simulations efficiently. Experimental validation led by Roberta Esposito supported the predictions; the work was published in <a href="https://www.nature.com/articles/s41467-023-39160-7">Nature Communications</a>, where I was co-first author.</p>
-<p><strong>Focus:</strong> Python · R · cancer genomics · statistical simulation · high-performance computing · reproducible research</p>
+<section id="situation-2" class="level3">
+<h3 class="anchored" data-anchor-id="situation-2">Situation 2</h3>
+<p>However, the FS forgets the True Negative Rate (TNR). And this is dangerous when:</p>
+<ul>
+<li>There are a high number of EP proteins and a low number of EN proteins, resulting in a class imbalance with high Prevalence. This could happen when comparing healthy vs tumor samples, where most proteins are expected to be differentially abundant.</li>
+<li>A silly method just predicts most proteins as differentially abundant, i.e.&nbsp;many more FP than TN proteins (low TNR).</li>
+</ul>
+<p>As exemplified below, all PPV, ACC, TPR and F1 will be high and they will suggest that the silly method is great. After some research, I found that Youden’s J Statistic (YJS) could avoid this problem as it considers the TNR. In consequence, YJS will be low in this situation and will flag the silly positive method as having poor performance.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># High prevalence and silly positive method</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad for PPV, ACC and F1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Good for YJS</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="dv">1999</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="dv">199</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>EP <span class="ot">&lt;-</span> TP <span class="sc">+</span> FN</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>EN <span class="ot">&lt;-</span> TN <span class="sc">+</span> FP</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Prevalence <span class="ot">&lt;-</span> EP <span class="sc">/</span> (EP <span class="sc">+</span> EN)   <span class="co"># 0.91</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>PPV <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FP)          <span class="co"># 0.91</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ACC <span class="ot">&lt;-</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> (EP <span class="sc">+</span> EN)   <span class="co"># 0.91</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>TPR <span class="ot">&lt;-</span> TP <span class="sc">/</span> EP                 <span class="co"># 0.99</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>FS <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> PPV <span class="sc">*</span> TPR <span class="sc">/</span> (PPV <span class="sc">+</span> TPR)  <span class="co"># 0.95</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>TNR <span class="ot">&lt;-</span> TN <span class="sc">/</span> EN                 <span class="co"># 0.01</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>YJS <span class="ot">&lt;-</span> TPR <span class="sc">+</span> TNR <span class="sc">-</span> <span class="dv">1</span>           <span class="co"># 0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-</div><div class="column" style="width:42%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="png/exinator1.png" class="project-image img-fluid figure-img"></p>
-<figcaption>ExInAtor mutation analysis</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="png/exinator2.png" class="project-image img-fluid figure-img"></p>
-<figcaption>ExInAtor2 functional-impact analysis</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="situation-3" class="level3">
+<h3 class="anchored" data-anchor-id="situation-3">Situation 3</h3>
+<p>But YJS also has a limitation since, depending on the situation, it could ignore either PPV or NPV. This is dangerous in situations where:</p>
+<ul>
+<li>Most proteins are EN and few are EP, i.e.&nbsp;low Prevalence. The same type of class imbalance as in Situation 1.</li>
+<li>The differential abundance method produces more FP than TP (low PPV), but few FP in comparison to TN (high NPV).</li>
+</ul>
+<p>As exemplified below, YJS will be high and will suggest that the differential abundance method is great when actually most OP proteins are wrong.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Low Prevalence, low PPV and high NPV</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad for YJS</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="dv">1899</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>EP <span class="ot">&lt;-</span> TP <span class="sc">+</span> FN</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>EN <span class="ot">&lt;-</span> TN <span class="sc">+</span> FP</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> EP <span class="sc">/</span> (EP <span class="sc">+</span> EN)            <span class="co"># 0.01</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>TPR <span class="ot">&lt;-</span> TP <span class="sc">/</span> EP                 <span class="co"># 0.91</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>TNR <span class="ot">&lt;-</span> TN <span class="sc">/</span> EN                 <span class="co"># 0.95</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>YJS <span class="ot">&lt;-</span> TPR <span class="sc">+</span> TNR <span class="sc">-</span> <span class="dv">1</span>           <span class="co"># 0.86</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>PPV <span class="ot">&lt;-</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FP)          <span class="co"># 0.09</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="evaluating-binary-classifiers-beyond-accuracy" class="level2">
-<h2 class="anchored" data-anchor-id="evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</h2>
-<div class="project-feature">
-<div class="columns">
-<div class="column" style="width:58%;">
-<section id="choosing-metrics-that-match-biomedical-decisions" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-metrics-that-match-biomedical-decisions">Choosing metrics that match biomedical decisions</h3>
-<p>Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.</p>
-<p><a href="articles/2023-01-19-mcc-phi-coefficient/">Read the article</a> or inspect the <a href="https://github.com/alanzos/performance_metrics_for_binary_classification">reproducible code and examples on GitHub</a>.</p>
-<p><strong>Focus:</strong> model evaluation · imbalanced classification · statistical reasoning · technical communication</p>
+<section id="the-night-is-darkest-just-before-dawn" class="level3">
+<h3 class="anchored" data-anchor-id="the-night-is-darkest-just-before-dawn">The night is darkest just before dawn</h3>
+<p>So up until now, all metrics failed for at least one situation, making none of them a reliable performance metric for binary classification problems.</p>
+<p>But do not worry, the Phi Coefficient (PC) is here to save the day. Firstly proposed by Udny Yule in 1912, this metric is also known as the Matthews Correlation Coefficient. Since it considers all PPV, NPV, TPR and TNR, it is the most robust performance metric for binary classification problems. As long as one of these four is low, PC will also be low and will indicate poor performance.</p>
+<p>As you can see in the summary, PC is the only metric to correctly indicate poor performance in all three situations shown above. All the other metrics like PPV, ACC, FS and YJS will incorrectly indicate good performance in at least one situation.</p>
+<p>Now you see why I stopped using Precision and Accuracy as performance metrics for binary classification problems and moved to Phi Coefficient (PC).</p>
+<p>I invite you to use Phi Coefficient next time that you are benchmarking different methods for binary classification, like in differential abundance testing of proteomics data. You can relax and trust that the best method will not be a silly one like those presented in this article.</p>
+<p>You can find the R code in this <a href="https://github.com/alanzos/performance_metrics_for_binary_classification">GitHub repository</a>.</p>
 </section>
-</div><div class="column" style="width:42%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="jpg/precision_accuracy.jpg" class="project-image img-fluid figure-img"></p>
-<figcaption>Illustration comparing precision and accuracy</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="vitatracer" class="level2">
-<h2 class="anchored" data-anchor-id="vitatracer">VitaTracer</h2>
-<div class="project-feature">
-<div class="columns">
-<div class="column" style="width:58%;">
-<section id="making-longitudinal-laboratory-results-easier-to-understand" class="level3">
-<h3 class="anchored" data-anchor-id="making-longitudinal-laboratory-results-easier-to-understand">Making longitudinal laboratory results easier to understand</h3>
-<p>I created <a href="https://andreslanzos.shinyapps.io/VitaTracer">VitaTracer</a> after finding it difficult to compare blood and urine test results across time. The Shiny application summarizes laboratory measurements and makes longitudinal changes easier to inspect.</p>
-<p>The <a href="https://github.com/alanzos/VitaTracer">source code is available on GitHub</a>.</p>
-<p><strong>Focus:</strong> R · Shiny · longitudinal data · health-data visualization</p>
-</section>
-</div><div class="column" style="width:42%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="png/VitaTracer.png" class="project-image img-fluid figure-img"></p>
-<figcaption>VitaTracer longitudinal results interface</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="investment-diversification-explorer" class="level2">
-<h2 class="anchored" data-anchor-id="investment-diversification-explorer">Investment-diversification explorer</h2>
-<div class="project-feature">
-<div class="columns">
-<div class="column" style="width:58%;">
-<section id="exploring-concentration-and-diversification-interactively" class="level3">
-<h3 class="anchored" data-anchor-id="exploring-concentration-and-diversification-interactively">Exploring concentration and diversification interactively</h3>
-<p>This <a href="https://andreslanzos.shinyapps.io/microwd_diversification/">Shiny application</a> explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.</p>
-<p>The <a href="https://github.com/alanzos/microwd_diversification">source code is available on GitHub</a>.</p>
-<p><strong>Focus:</strong> R · Shiny · interactive analytics · financial data visualization</p>
-</section>
-</div><div class="column" style="width:42%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="jpg/microwd_webapp.JPG" class="project-image img-fluid figure-img"></p>
-<figcaption>Investment-diversification application</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="further-reading" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading">Further reading</h3>
+<ul>
+<li><a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-6413-7">The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation</a></li>
+<li><a href="https://biodatamining.biomedcentral.com/articles/10.1186/s13040-021-00244-z">The Matthews correlation coefficient (MCC) is more reliable than balanced accuracy, bookmaker informedness, and markedness in two-class confusion matrix evaluation</a></li>
+<li><a href="https://towardsdatascience.com/the-best-classification-metric-youve-never-heard-of-the-matthews-correlation-coefficient-3bf50a9f141e">Matthews Correlation Coefficient is The Best Classification Metric You’ve Never Heard Of</a></li>
+</ul>
 
 
 </section>
@@ -913,5 +952,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
