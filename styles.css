@@ -760,13 +760,15 @@ main.content img.img-fluid {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 650;
-  left: 50%;
+  left: auto;
   letter-spacing: 0.02em;
   line-height: 1;
   min-height: 2.6rem;
   padding: 0.7rem 1.15rem;
+  position: fixed;
+  right: 1.35rem;
   text-decoration: none !important;
-  transform: translateX(-50%);
+  transform: none;
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -788,7 +790,7 @@ main.content img.img-fluid {
   border-color: rgba(255, 255, 255, 0.18);
   box-shadow: 0 14px 32px rgba(23, 54, 95, 0.28);
   color: #ffffff !important;
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 body.quarto-dark #quarto-back-to-top,
@@ -814,6 +816,7 @@ body.quarto-dark #quarto-back-to-top:focus-visible,
     font-size: 0.82rem;
     min-height: 2.4rem;
     padding: 0.45rem 0.9rem;
+    right: 1rem;
   }
 }
 
