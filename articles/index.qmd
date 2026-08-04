@@ -1,0 +1,18 @@
+---
+title: "Articles"
+description: "Notes on biomarkers, prevention, ageing, and biomedical data science."
+listing:
+  contents: .
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, reading-time, description, categories]
+  page-size: 12
+  image-height: 220px
+page-layout: full
+comments: false
+---
+
+Short notes on biomarkers, prevention, ageing, and biomedical data science.

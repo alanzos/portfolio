@@ -1,0 +1,6 @@
+---
+title: "Writing"
+comments: false
+---
+
+This page has moved to **[Articles](../articles/)**.

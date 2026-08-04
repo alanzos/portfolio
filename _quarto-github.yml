@@ -1,0 +1,25 @@
+# Profile for GitHub Pages only (Quarto Pub stays unchanged).
+# Use: quarto publish gh-pages --profile github --no-prompt --no-browser
+project:
+  resources:
+    - "gh-audio/**"
+website:
+  site-url: "https://alanzos.github.io/portfolio/"
+  comments:
+    giscus:
+      repo: alanzos/portfolio
+      repo-id: R_kgDOI50biQ
+      category: General
+      category-id: DIC_kwDOI50bic4DCqaX
+      mapping: pathname
+      reactions-enabled: true
+      input-position: top
+      loading: lazy
+      theme:
+        light: light
+        dark: dark
+format:
+  html:
+    link-external-filter: '^(?:https?:)?//(?:andreslanzos\.quarto\.pub|alanzos\.github\.io)(?:/|$)'
+    include-after-body:
+      - includes/gh-engagement.html

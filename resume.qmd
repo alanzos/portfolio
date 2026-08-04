@@ -1,6 +1,7 @@
 ---
 title: "Curriculum Vitae"
 page-layout: full
+comments: false
 ---
 
 ::: {.cv-actions}
@@ -16,3 +17,7 @@ page-layout: full
 </iframe>
 
 If the embedded document is unavailable in your browser, [open the CV directly](pdf/2026-07-18_Andres_Lanzos_CV_EN_Canonical_Option_C.pdf){target="_blank"}.
+
+::: {.cv-search-index}
+{{< include includes/cv-search-text.md >}}
+:::

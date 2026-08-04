@@ -24,6 +24,7 @@ about:
       text: ORCID
       href: https://orcid.org/0000-0002-5844-2974
 page-layout: full
+comments: false
 ---
 
 ::: {#heading}
@@ -35,104 +36,24 @@ I am a PhD biomedical data scientist with **5+ years in Swiss biotech, pharma an
 My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in **Basel, Switzerland**, and hold a Swiss C permit.
 :::
 
-## Evidence at a glance {.section-heading}
+## On this website {.section-heading}
 
-::: {.metrics-grid}
-::: {.metric-card}
-<span class="metric-value">4x</span>
+::: {.site-map}
+::: {.site-map-card}
+### [Projects](projects.qmd)
 
-Sensitivity versus the best clinical tools at matched specificity in an ML disease-risk pipeline.
+Selected scientific software and applied analytics, from discovery methods to usable tools.
 :::
 
-::: {.metric-card}
-<span class="metric-value">CHF 700k</span>
+::: {.site-map-card}
+### [Articles](articles/)
 
-Dilutive and non-dilutive funding raised for a preventive-health venture.
+Short notes on biomarkers, prevention, ageing and biomedical data science.
 :::
 
-::: {.metric-card}
-<span class="metric-value">CHF 1M+</span>
+::: {.site-map-card}
+### [CV](resume.qmd)
 
-Cross-functional scientific programmes led in biotech and pharma environments.
-:::
-
-::: {.metric-card}
-<span class="metric-value">1,452</span>
-
-Google Scholar citations across eight publications, with an h-index of 7.
+Experience, education, publications and contact details in one place.
 :::
 :::
-
-## What I bring {.section-heading}
-
-::: {.capabilities-grid}
-::: {.capability-card}
-### Translational science
-
-Target and biomarker discovery, oncology, immunology, multi-omics, proteomics, metabolomics, bulk and single-cell RNA-seq, clinical data and real-world data.
-:::
-
-::: {.capability-card}
-### Data science and engineering
-
-Python, R, SQL, machine learning, survival and differential analyses, AWS, Linux, Git/GitLab, Nextflow, nf-core, high-performance computing and Shiny.
-:::
-
-::: {.capability-card}
-### Product and delivery
-
-From scientific discovery to operational products: GCP/GxP, product design, regulatory strategy, cloud infrastructure, stakeholder management, negotiations, customer acquisition and user testing.
-:::
-:::
-
-## Selected experience {.section-heading}
-
-::: {.experience-list}
-::: {.experience-card}
-### CSEM · Entrepreneur, Idunox Startup Project
-
-**05/2024–07/2026 · Allschwil, Switzerland**
-
-Developed an ML pipeline from raw data to disease risks and explainable markers, achieving 4x sensitivity at matched specificity. Raised CHF 700k and led R&D strategy for a team of five across data and AI workflows, legal and ethics frameworks, governance, providers and supply chain.
-:::
-
-::: {.experience-card}
-### Idorsia Pharmaceuticals · Data Scientist
-
-**09/2022–04/2024 · Allschwil, Switzerland · Translational Biomarkers, Drug Discovery Biology**
-
-Discovered targets, biomarkers, mechanisms of action and indications in oncology and immunology using omics and real-world data. Built automated Nextflow/nf-core pipelines in GitLab and AWS and served as lead scientist on a CHF 1M+ programme.
-:::
-
-::: {.experience-card}
-### Biognosys · Data Scientist
-
-**05/2020–08/2022 · Schlieren, Switzerland**
-
-Developed proteomics data products, R algorithms and Shiny applications; designed SQL databases for clinical data under GCP/GxP constraints; and led a CHF 1M+ cross-functional programme spanning science, IT, legal, regulatory, operations and wet-lab teams.
-:::
-:::
-
-## Research that translates {.section-heading}
-
-My academic work focused on cancer genomics and long non-coding RNA drivers. I developed ExInAtor, contributed one of 13 methods selected by the PCAWG consortium, and co-first-authored research connecting non-coding mutations with cancer cell fitness.
-
-::: {.publication-grid}
-::: {.publication-card}
-### [Tumour mutations in long noncoding RNAs enhance cell fitness](https://www.nature.com/articles/s41467-023-39160-7)
-
-*Nature Communications*, 2023 · Co-first author · 25 citations
-:::
-
-::: {.publication-card}
-### [Analyses of non-coding somatic drivers in 2,658 cancer whole genomes](https://www.nature.com/articles/s41586-020-1965-x)
-
-*Nature*, 2020 · Developer of one of 13 PCAWG-selected methods · 762 citations
-:::
-:::
-
-<p class="citation-note">Citation snapshot updated 16 July 2026. See the complete record on <a href="https://scholar.google.com/citations?user=h1VE1i8AAAAJ&amp;hl=en" target="_blank">Google Scholar</a>.</p>
-
-## Let’s work together {.section-heading}
-
-I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together, particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.

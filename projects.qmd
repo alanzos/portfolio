@@ -7,11 +7,16 @@ format:
     toc: true
     toc-title: Projects
     toc-location: right
+comments: false
 ---
 
 The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.
 
 ## 3D Protein Explorer
+
+::: {.project-date}
+June 2022
+:::
 
 ::: {.project-feature}
 ::: {.columns}
@@ -32,6 +37,10 @@ I built the public Shiny application and designed a responsive data-loading appr
 :::
 
 ## ExInAtor and ExInAtor2
+
+::: {.project-date}
+2017–2023
+:::
 
 ::: {.project-feature}
 ::: {.columns}
@@ -55,6 +64,10 @@ I later developed [ExInAtor2](https://github.com/gold-lab/ExInAtor2), adding fun
 
 ## Evaluating binary classifiers beyond accuracy
 
+::: {.project-date}
+January 2023
+:::
+
 ::: {.project-feature}
 ::: {.columns}
 ::: {.column width="58%"}
@@ -62,7 +75,7 @@ I later developed [ExInAtor2](https://github.com/gold-lab/ExInAtor2), adding fun
 
 Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.
 
-[Read the LinkedIn article](https://www.linkedin.com/pulse/why-i-stopped-using-precision-accuracy-binary-andr%C3%A9s-lanz%C3%B3s/) or inspect the [reproducible code and examples on GitHub](https://github.com/alanzos/performance_metrics_for_binary_classification).
+[Read the article](articles/2023-01-19-mcc-phi-coefficient/) or inspect the [reproducible code and examples on GitHub](https://github.com/alanzos/performance_metrics_for_binary_classification).
 
 **Focus:** model evaluation · imbalanced classification · statistical reasoning · technical communication
 :::
@@ -74,6 +87,10 @@ Accuracy and precision can be misleading when classes are imbalanced or when the
 :::
 
 ## VitaTracer
+
+::: {.project-date}
+May 2023
+:::
 
 ::: {.project-feature}
 ::: {.columns}
@@ -94,6 +111,10 @@ The [source code is available on GitHub](https://github.com/alanzos/VitaTracer).
 :::
 
 ## Investment-diversification explorer
+
+::: {.project-date}
+February 2023
+:::
 
 ::: {.project-feature}
 ::: {.columns}
