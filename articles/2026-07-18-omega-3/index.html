@@ -419,20 +419,39 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<!-- GitHub Pages only: per-page read / view counters -->
-<div id="gh-engagement" class="gh-engagement" hidden="" aria-live="polite">
-  <span class="gh-engagement-label" id="gh-engagement-label">Reads</span>
-  <span class="gh-engagement-count" id="gh-engagement-count">–</span>
+<!-- GitHub Pages only: read counters + article listen (Web Speech API) -->
+<div id="gh-toolbar" class="gh-toolbar" hidden="">
+  <div id="gh-engagement" class="gh-engagement" hidden="" aria-live="polite">
+    <span class="gh-engagement-label" id="gh-engagement-label">Reads</span>
+    <span class="gh-engagement-count" id="gh-engagement-count">–</span>
+  </div>
+
+  <div id="gh-listen" class="gh-listen" hidden="">
+    <button type="button" class="gh-listen-btn" id="gh-listen-toggle" aria-pressed="false">
+      Listen to this article
+    </button>
+    <button type="button" class="gh-listen-btn gh-listen-btn-secondary" id="gh-listen-stop" hidden="">
+      Stop
+    </button>
+    <span class="gh-listen-status" id="gh-listen-status" aria-live="polite"></span>
+  </div>
 </div>
 
 <script>
 (() => {
   const NAMESPACE = "alanzosportfolio";
   const API = "https://api.counterapi.dev/v1";
+
+  const toolbar = document.getElementById("gh-toolbar");
   const root = document.getElementById("gh-engagement");
   const labelEl = document.getElementById("gh-engagement-label");
   const countEl = document.getElementById("gh-engagement-count");
-  if (!root || !labelEl || !countEl) return;
+  const listenRoot = document.getElementById("gh-listen");
+  const listenToggle = document.getElementById("gh-listen-toggle");
+  const listenStop = document.getElementById("gh-listen-stop");
+  const listenStatus = document.getElementById("gh-listen-status");
+
+  if (!toolbar || !root || !labelEl || !countEl) return;
 
   const path = (window.location.pathname || "/").replace(/\/index\.html$/, "").replace(/\/+$/, "") || "/";
   const isArticle = /\/articles\/20\d{2}-/.test(path);
@@ -447,16 +466,17 @@ ul.task-list li input[type="checkbox"] {
 
   labelEl.textContent = isArticle ? "Article reads" : "Page views";
 
-  // Place the counter under the title block when possible.
   const anchor =
     document.querySelector(".quarto-title-meta") ||
     document.querySelector("header#title-block-header") ||
     document.querySelector(".quarto-about-jolla") ||
     document.querySelector("main#quarto-document-content");
   if (anchor && anchor.parentNode) {
-    anchor.insertAdjacentElement("afterend", root);
+    anchor.insertAdjacentElement("afterend", toolbar);
   }
+  toolbar.hidden = false;
 
+  // --- View / read counter ---
   const sessionKey = `gh-viewed:${key}`;
   let already = false;
   try { already = sessionStorage.getItem(sessionKey) === "1"; } catch (_) {}
@@ -480,6 +500,162 @@ ul.task-list li input[type="checkbox"] {
       }
     })
     .catch(() => { root.hidden = true; });
+
+  // --- Listen to this article (Web Speech API) ---
+  if (!isArticle || !listenRoot || !listenToggle || !listenStop || !listenStatus) return;
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") return;
+
+  listenRoot.hidden = false;
+
+  const synth = window.speechSynthesis;
+  let speaking = false;
+  let paused = false;
+  let voicesReady = false;
+
+  const setIdle = () => {
+    speaking = false;
+    paused = false;
+    listenToggle.textContent = "Listen to this article";
+    listenToggle.setAttribute("aria-pressed", "false");
+    listenStop.hidden = true;
+    listenStatus.textContent = "";
+  };
+
+  const setPlaying = () => {
+    speaking = true;
+    paused = false;
+    listenToggle.textContent = "Pause";
+    listenToggle.setAttribute("aria-pressed", "true");
+    listenStop.hidden = false;
+    listenStatus.textContent = "Playing";
+  };
+
+  const setPaused = () => {
+    speaking = true;
+    paused = true;
+    listenToggle.textContent = "Resume";
+    listenToggle.setAttribute("aria-pressed", "true");
+    listenStop.hidden = false;
+    listenStatus.textContent = "Paused";
+  };
+
+  const pickVoice = () => {
+    const voices = synth.getVoices();
+    if (!voices.length) return null;
+    const en = voices.filter((v) => /^en([-_]|$)/i.test(v.lang));
+    const pool = en.length ? en : voices;
+    return (
+      pool.find((v) => /premium|enhanced|natural|neural/i.test(v.name)) ||
+      pool.find((v) => /english/i.test(v.name)) ||
+      pool[0] ||
+      null
+    );
+  };
+
+  const articleText = () => {
+    const main =
+      document.querySelector("main#quarto-document-content") ||
+      document.querySelector("#quarto-document-content") ||
+      document.querySelector("main");
+    if (!main) return "";
+
+    const clone = main.cloneNode(true);
+    clone.querySelectorAll([
+      "script",
+      "style",
+      "nav",
+      "button",
+      "form",
+      "pre",
+      "code",
+      ".giscus",
+      ".gh-toolbar",
+      ".gh-engagement",
+      ".gh-listen",
+      ".quarto-title-meta",
+      "#title-block-header",
+      ".page-navigation",
+      ".toc-actions",
+      "iframe",
+      "svg",
+    ].join(",")).forEach((el) => el.remove());
+
+    // Keep figure meaning via alt text when present.
+    clone.querySelectorAll("img[alt]").forEach((img) => {
+      const alt = (img.getAttribute("alt") || "").trim();
+      if (!alt) return;
+      const note = document.createTextNode(` Image: ${alt}. `);
+      img.replaceWith(note);
+    });
+
+    let text = (clone.innerText || clone.textContent || "")
+      .replace(/\u00a0/g, " ")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .replace(/[ \t]{2,}/g, " ")
+      .trim();
+
+    const title = document.querySelector("h1.title, header#title-block-header h1");
+    if (title && title.textContent) {
+      text = `${title.textContent.trim()}.\n\n${text}`;
+    }
+    return text;
+  };
+
+  const stop = () => {
+    synth.cancel();
+    setIdle();
+  };
+
+  const start = () => {
+    const text = articleText();
+    if (!text) {
+      listenStatus.textContent = "Nothing to read on this page.";
+      return;
+    }
+
+    synth.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    const voice = pickVoice();
+    if (voice) utterance.voice = voice;
+    utterance.lang = (voice && voice.lang) || "en-GB";
+
+    utterance.onstart = () => setPlaying();
+    utterance.onend = () => setIdle();
+    utterance.onerror = () => setIdle();
+
+    setPlaying();
+    synth.speak(utterance);
+  };
+
+  listenToggle.addEventListener("click", () => {
+    if (!speaking) {
+      start();
+      return;
+    }
+    if (paused) {
+      synth.resume();
+      setPlaying();
+      return;
+    }
+    synth.pause();
+    setPaused();
+  });
+
+  listenStop.addEventListener("click", stop);
+
+  // Chrome loads voices asynchronously.
+  const markVoices = () => { voicesReady = true; };
+  markVoices();
+  if (typeof synth.addEventListener === "function") {
+    synth.addEventListener("voiceschanged", markVoices);
+  } else {
+    synth.onvoiceschanged = markVoices;
+  }
+
+  window.addEventListener("beforeunload", stop);
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
