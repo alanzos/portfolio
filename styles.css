@@ -100,7 +100,7 @@ a {
   flex: 0 0 auto;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
-  margin-right: var(--navbar-left-gap) !important;
+  margin-right: calc(var(--navbar-left-gap) + 0.35rem) !important;
   margin-top: 0 !important;
   max-width: none !important;
   padding: 0 !important;
