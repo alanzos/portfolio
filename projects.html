@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
 
-<title>Andres Lanzos</title>
+<title>Selected Projects – Andres Lanzos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -72,13 +74,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Andres Lanzos">
-<meta property="og:description" content="Biomedical Data Scientist · Translational Omics · Biomarker Discovery · ML Products">
-<meta property="og:image" content="https://alanzos.github.io/portfolio/jpg/photo.jpg">
+<meta property="og:title" content="Selected Projects – Andres Lanzos">
+<meta property="og:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
+<meta property="og:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
 <meta property="og:site_name" content="Andres Lanzos">
-<meta name="twitter:title" content="Andres Lanzos">
-<meta name="twitter:description" content="Biomedical Data Scientist · Translational Omics · Biomarker Discovery · ML Products">
-<meta name="twitter:image" content="https://alanzos.github.io/portfolio/jpg/photo.jpg">
+<meta property="og:image:height" content="1478">
+<meta property="og:image:width" content="1920">
+<meta name="twitter:title" content="Selected Projects – Andres Lanzos">
+<meta name="twitter:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
+<meta name="twitter:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
+<meta name="twitter:image-height" content="1478">
+<meta name="twitter:image-width" content="1920">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -260,11 +266,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
@@ -300,134 +306,163 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Projects</h2>
+   
+  <ul>
+  <li><a href="#d-protein-explorer" id="toc-d-protein-explorer" class="nav-link active" data-scroll-target="#d-protein-explorer">3D Protein Explorer</a></li>
+  <li><a href="#exinator-and-exinator2" id="toc-exinator-and-exinator2" class="nav-link" data-scroll-target="#exinator-and-exinator2">ExInAtor and ExInAtor2</a></li>
+  <li><a href="#evaluating-binary-classifiers-beyond-accuracy" id="toc-evaluating-binary-classifiers-beyond-accuracy" class="nav-link" data-scroll-target="#evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</a></li>
+  <li><a href="#vitatracer" id="toc-vitatracer" class="nav-link" data-scroll-target="#vitatracer">VitaTracer</a></li>
+  <li><a href="#investment-diversification-explorer" id="toc-investment-diversification-explorer" class="nav-link" data-scroll-target="#investment-diversification-explorer">Investment-diversification explorer</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-jolla column-page">
-  <img src="jpg/photo.jpg" class="about-image
-  round " style="height: 12em; width: 12em;">
- <header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Andres Lanzos</h1>
-<p class="subtitle lead">Biomedical Data Scientist · Translational Omics · Biomarker Discovery · ML Products</p>
+<h1 class="title">Selected Projects</h1>
 </div>
-<div class="quarto-title-meta column-page">
+
+<div>
+  <div class="description">
+    Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.
   </div>
-</header><div id="heading">
-</div> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="mailto:andreslanzos@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://www.linkedin.com/in/andreslanzos/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/alanzos" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=h1VE1i8AAAAJ&amp;hl=en" class="about-link" rel="" target="">
-    <i class="bi bi-google"></i>
-     <span class="about-link-text">Scholar</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-5844-2974" class="about-link" rel="" target="">
-    <i class="bi bi-person-badge"></i>
-     <span class="about-link-text">ORCID</span>
-  </a>
-</div>
 </div>
 
-<div class="intro-copy">
-<p>I am a PhD biomedical data scientist with <strong>5+ years in Swiss biotech, pharma and healthtech</strong> and <strong>10+ years across industry and academia</strong>. I take data-science projects from discovery to operational product, connecting scientific evidence with product design, data and cloud infrastructure, regulatory strategy, stakeholder negotiation, customer discovery and user testing.</p>
-<p>My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in <strong>Basel, Switzerland</strong>, and hold a Swiss C permit.</p>
-</div>
-<section id="evidence-at-a-glance" class="level2 section-heading">
-<h2 class="section-heading" data-anchor-id="evidence-at-a-glance">Evidence at a glance</h2>
-<div class="metrics-grid">
-<div class="metric-card">
-<p><span class="metric-value">4x</span></p>
-<p>Sensitivity versus the best clinical tools at matched specificity in an ML disease-risk pipeline.</p>
-</div>
-<div class="metric-card">
-<p><span class="metric-value">CHF 700k</span></p>
-<p>Dilutive and non-dilutive funding raised for a preventive-health venture.</p>
-</div>
-<div class="metric-card">
-<p><span class="metric-value">CHF 1M+</span></p>
-<p>Cross-functional scientific programmes led in biotech and pharma environments.</p>
-</div>
-<div class="metric-card">
-<p><span class="metric-value">1,452</span></p>
-<p>Google Scholar citations across eight publications, with an h-index of 7.</p>
-</div>
-</div>
-</section>
-<section id="what-i-bring" class="level2 section-heading">
-<h2 class="section-heading" data-anchor-id="what-i-bring">What I bring</h2>
-<div class="capabilities-grid">
-<section id="translational-science" class="level3 capability-card">
-<h3 data-anchor-id="translational-science">Translational science</h3>
-<p>Target and biomarker discovery, oncology, immunology, multi-omics, proteomics, metabolomics, bulk and single-cell RNA-seq, clinical data and real-world data.</p>
-</section>
-<section id="data-science-and-engineering" class="level3 capability-card">
-<h3 data-anchor-id="data-science-and-engineering">Data science and engineering</h3>
-<p>Python, R, SQL, machine learning, survival and differential analyses, AWS, Linux, Git/GitLab, Nextflow, nf-core, high-performance computing and Shiny.</p>
-</section>
-<section id="product-and-delivery" class="level3 capability-card">
-<h3 data-anchor-id="product-and-delivery">Product and delivery</h3>
-<p>From scientific discovery to operational products: GCP/GxP, product design, regulatory strategy, cloud infrastructure, stakeholder management, negotiations, customer acquisition and user testing.</p>
-</section>
-</div>
-</section>
-<section id="selected-experience" class="level2 section-heading">
-<h2 class="section-heading" data-anchor-id="selected-experience">Selected experience</h2>
-<div class="experience-list">
-<section id="csem-entrepreneur-idunox-startup-project" class="level3 experience-card">
-<h3 data-anchor-id="csem-entrepreneur-idunox-startup-project">CSEM · Entrepreneur, Idunox Startup Project</h3>
-<p><strong>05/2024–07/2026 · Allschwil, Switzerland</strong></p>
-<p>Developed an ML pipeline from raw data to disease risks and explainable markers, achieving 4x sensitivity at matched specificity. Raised CHF 700k and led R&amp;D strategy for a team of five across data and AI workflows, legal and ethics frameworks, governance, providers and supply chain.</p>
-</section>
-<section id="idorsia-pharmaceuticals-data-scientist" class="level3 experience-card">
-<h3 data-anchor-id="idorsia-pharmaceuticals-data-scientist">Idorsia Pharmaceuticals · Data Scientist</h3>
-<p><strong>09/2022–04/2024 · Allschwil, Switzerland · Translational Biomarkers, Drug Discovery Biology</strong></p>
-<p>Discovered targets, biomarkers, mechanisms of action and indications in oncology and immunology using omics and real-world data. Built automated Nextflow/nf-core pipelines in GitLab and AWS and served as lead scientist on a CHF 1M+ programme.</p>
-</section>
-<section id="biognosys-data-scientist" class="level3 experience-card">
-<h3 data-anchor-id="biognosys-data-scientist">Biognosys · Data Scientist</h3>
-<p><strong>05/2020–08/2022 · Schlieren, Switzerland</strong></p>
-<p>Developed proteomics data products, R algorithms and Shiny applications; designed SQL databases for clinical data under GCP/GxP constraints; and led a CHF 1M+ cross-functional programme spanning science, IT, legal, regulatory, operations and wet-lab teams.</p>
-</section>
-</div>
-</section>
-<section id="research-that-translates" class="level2 section-heading">
-<h2 class="section-heading" data-anchor-id="research-that-translates">Research that translates</h2>
-<p>My academic work focused on cancer genomics and long non-coding RNA drivers. I developed ExInAtor, contributed one of 13 methods selected by the PCAWG consortium, and co-first-authored research connecting non-coding mutations with cancer cell fitness.</p>
-<div class="publication-grid">
-<section id="tumour-mutations-in-long-noncoding-rnas-enhance-cell-fitness" class="level3 publication-card">
-<h3 data-anchor-id="tumour-mutations-in-long-noncoding-rnas-enhance-cell-fitness"><a href="https://www.nature.com/articles/s41467-023-39160-7">Tumour mutations in long noncoding RNAs enhance cell fitness</a></h3>
-<p><em>Nature Communications</em>, 2023 · Co-first author · 25 citations</p>
-</section>
-<section id="analyses-of-non-coding-somatic-drivers-in-2658-cancer-whole-genomes" class="level3 publication-card">
-<h3 data-anchor-id="analyses-of-non-coding-somatic-drivers-in-2658-cancer-whole-genomes"><a href="https://www.nature.com/articles/s41586-020-1965-x">Analyses of non-coding somatic drivers in 2,658 cancer whole genomes</a></h3>
-<p><em>Nature</em>, 2020 · Developer of one of 13 PCAWG-selected methods · 762 citations</p>
-</section>
-</div>
-<p class="citation-note">
-Citation snapshot updated 16 July 2026. See the complete record on <a href="https://scholar.google.com/citations?user=h1VE1i8AAAAJ&amp;hl=en" target="_blank">Google Scholar</a>.
-</p>
-</section>
-<section id="lets-work-together" class="level2 section-heading">
-<h2 class="section-heading" data-anchor-id="lets-work-together">Let’s work together</h2>
-<p>I am interested in biomedical data-science roles and collaborations where rigorous science, robust engineering and product thinking need to work together, particularly in translational medicine, biomarkers, multi-omics, diagnostics and healthtech.</p>
 
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.</p>
+<section id="d-protein-explorer" class="level2">
+<h2 class="anchored" data-anchor-id="d-protein-explorer">3D Protein Explorer</h2>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="connecting-mass-spectrometry-with-protein-structure" class="level3">
+<h3 class="anchored" data-anchor-id="connecting-mass-spectrometry-with-protein-structure">Connecting mass spectrometry with protein structure</h3>
+<p>While working in R&amp;D at <a href="https://biognosysgroup.com/">Biognosys</a>, I identified an opportunity to connect newly released AlphaFold structures with the company’s proteomics coverage. The resulting <a href="https://biognosys.shinyapps.io/3D_protein_explorer/">3D Protein Explorer</a> lets users select a protein and see which regions are observed by mass spectrometry.</p>
+<p>I built the public Shiny application and designed a responsive data-loading approach that could search thousands of proteins without freezing the interface. The project was developed alongside my main work and involved collaboration with business and marketing teams to turn a technical capability into a customer-facing demonstration.</p>
+<p><strong>Focus:</strong> R · Shiny · proteomics · AlphaFold · scientific visualization · product collaboration</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/protein_explorer.png" class="project-image img-fluid figure-img"></p>
+<figcaption>3D Protein Explorer interface</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exinator-and-exinator2" class="level2">
+<h2 class="anchored" data-anchor-id="exinator-and-exinator2">ExInAtor and ExInAtor2</h2>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="finding-cancer-driver-long-non-coding-rnas" class="level3">
+<h3 class="anchored" data-anchor-id="finding-cancer-driver-long-non-coding-rnas">Finding cancer-driver long non-coding RNAs</h3>
+<p>During my PhD, I developed <a href="https://github.com/alanzos/ExInAtor">ExInAtor</a>, the first method designed specifically to identify long non-coding RNAs recurrently mutated in cancer. The work was published in <a href="https://www.nature.com/articles/srep41544">Scientific Reports</a>, where I was first author.</p>
+<p>I later developed <a href="https://github.com/gold-lab/ExInAtor2">ExInAtor2</a>, adding functional-impact evidence to mutation frequency and optimizing Python and R workflows to run millions of simulations efficiently. Experimental validation led by Roberta Esposito supported the predictions; the work was published in <a href="https://www.nature.com/articles/s41467-023-39160-7">Nature Communications</a>, where I was co-first author.</p>
+<p><strong>Focus:</strong> Python · R · cancer genomics · statistical simulation · high-performance computing · reproducible research</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/exinator1.png" class="project-image img-fluid figure-img"></p>
+<figcaption>ExInAtor mutation analysis</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/exinator2.png" class="project-image img-fluid figure-img"></p>
+<figcaption>ExInAtor2 functional-impact analysis</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-binary-classifiers-beyond-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</h2>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="choosing-metrics-that-match-biomedical-decisions" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-metrics-that-match-biomedical-decisions">Choosing metrics that match biomedical decisions</h3>
+<p>Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.</p>
+<p><a href="https://www.linkedin.com/pulse/why-i-stopped-using-precision-accuracy-binary-andr%C3%A9s-lanz%C3%B3s/">Read the LinkedIn article</a> or inspect the <a href="https://github.com/alanzos/performance_metrics_for_binary_classification">reproducible code and examples on GitHub</a>.</p>
+<p><strong>Focus:</strong> model evaluation · imbalanced classification · statistical reasoning · technical communication</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="jpg/precision_accuracy.jpg" class="project-image img-fluid figure-img"></p>
+<figcaption>Illustration comparing precision and accuracy</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="vitatracer" class="level2">
+<h2 class="anchored" data-anchor-id="vitatracer">VitaTracer</h2>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="making-longitudinal-laboratory-results-easier-to-understand" class="level3">
+<h3 class="anchored" data-anchor-id="making-longitudinal-laboratory-results-easier-to-understand">Making longitudinal laboratory results easier to understand</h3>
+<p>I created <a href="https://andreslanzos.shinyapps.io/VitaTracer">VitaTracer</a> after finding it difficult to compare blood and urine test results across time. The Shiny application summarizes laboratory measurements and makes longitudinal changes easier to inspect.</p>
+<p>The <a href="https://github.com/alanzos/VitaTracer">source code is available on GitHub</a>.</p>
+<p><strong>Focus:</strong> R · Shiny · longitudinal data · health-data visualization</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/VitaTracer.png" class="project-image img-fluid figure-img"></p>
+<figcaption>VitaTracer longitudinal results interface</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="investment-diversification-explorer" class="level2">
+<h2 class="anchored" data-anchor-id="investment-diversification-explorer">Investment-diversification explorer</h2>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="exploring-concentration-and-diversification-interactively" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-concentration-and-diversification-interactively">Exploring concentration and diversification interactively</h3>
+<p>This <a href="https://andreslanzos.shinyapps.io/microwd_diversification/">Shiny application</a> explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.</p>
+<p>The <a href="https://github.com/alanzos/microwd_diversification">source code is available on GitHub</a>.</p>
+<p><strong>Focus:</strong> R · Shiny · interactive analytics · financial data visualization</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="jpg/microwd_webapp.JPG" class="project-image img-fluid figure-img"></p>
+<figcaption>Investment-diversification application</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -448,6 +483,13 @@ Citation snapshot updated 16 July 2026. See the complete record on <a href="http
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
