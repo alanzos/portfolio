@@ -57,8 +57,19 @@ a {
   outline-offset: 3px;
 }
 
+/* Search overlay already has its own focus chrome; skip the yellow portfolio ring */
+.aa-Input:focus,
+.aa-Input:focus-visible,
+.aa-DetachedFormContainer .aa-Form:focus-within .aa-Input {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
 /* Navigation: functional sans */
 .navbar {
+  --navbar-left-gap: 1rem;
+  --navbar-icon-gap: 0.55rem;
+  --navbar-icon-size: 1.2rem;
   align-items: center !important;
   background: var(--portfolio-navy) !important;
   box-shadow: 0 5px 22px rgba(10, 31, 55, 0.16);
@@ -73,8 +84,9 @@ a {
 .navbar .container-fluid.navbar-container {
   align-items: center !important;
   display: flex !important;
-  flex-wrap: nowrap;
-  gap: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: center;
   min-height: 4rem;
   width: 100%;
 }
@@ -82,8 +94,7 @@ a {
 .navbar-brand-container {
   align-items: center;
   display: flex;
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
+  margin: 0 var(--navbar-left-gap) 0 0 !important;
 }
 
 .navbar-brand {
@@ -93,22 +104,40 @@ a {
   letter-spacing: 0.01em;
   line-height: 1;
   margin: 0;
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
+  padding: 0 !important;
 }
 
 .navbar-title {
   line-height: 1.2;
 }
 
+/* Keep links+icons visible and packed; do not stretch to fill the bar */
 .navbar-collapse {
   align-items: center !important;
-  flex-grow: 1;
+  display: flex !important;
+  flex-basis: auto !important;
+  flex-grow: 0 !important;
+  gap: var(--navbar-left-gap);
+  height: auto !important;
+  margin: 0 var(--navbar-icon-gap) 0 0 !important;
+  overflow: visible !important;
 }
 
 .navbar-nav {
   align-items: center !important;
+  gap: var(--navbar-left-gap);
   height: 100%;
+  margin: 0 !important;
+}
+
+.navbar-nav.me-auto,
+.navbar-nav.ms-auto {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.navbar-nav.ms-auto {
+  gap: var(--navbar-icon-gap);
 }
 
 .navbar-nav .nav-item {
@@ -123,8 +152,7 @@ a {
   letter-spacing: 0.02em;
   line-height: 1.2;
   min-height: 2.75rem;
-  padding-bottom: 0.55rem !important;
-  padding-top: 0.55rem !important;
+  padding: 0.55rem 0 !important;
 }
 
 .navbar-nav .nav-link.active {
@@ -136,15 +164,20 @@ a {
 .navbar-nav .nav-item.compact .nav-link {
   justify-content: center;
   min-width: 2.75rem;
-  padding-left: 0.55rem !important;
-  padding-right: 0.55rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.navbar-nav .nav-item.compact .nav-link .bi {
+  font-size: var(--navbar-icon-size);
+  line-height: 1;
 }
 
 .quarto-navbar-tools {
   align-items: center;
   display: inline-flex;
-  gap: 0.15rem;
-  margin: 0;
+  gap: var(--navbar-icon-gap);
+  margin: 0 var(--navbar-icon-gap) 0 0 !important;
 }
 
 .navbar .quarto-navigation-tool,
@@ -153,16 +186,37 @@ a {
   align-items: center;
   display: inline-flex;
   justify-content: center;
-  margin: 0;
+  margin: 0 !important;
   min-height: 2.75rem;
   min-width: 2.75rem;
+  padding: 0 !important;
 }
 
+/* Kill Bootstrap px-* on the theme toggle so icon gaps stay even */
+.navbar .quarto-navbar-tools .quarto-navigation-tool.px-1 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.navbar #quarto-search,
+.navbar #quarto-search .aa-Autocomplete,
+.navbar #quarto-search .aa-DetachedSearchButton {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+.navbar #quarto-search svg.aa-SubmitIcon,
+.navbar #quarto-search .aa-DetachedSearchButtonIcon svg,
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon,
+.navbar #quarto-search.type-overlay .aa-Autocomplete .aa-Form .aa-Label svg,
+.navbar #quarto-search.type-overlay .aa-Autocomplete .aa-Form .aa-LoadingIndicator svg {
+  height: var(--navbar-icon-size) !important;
+  width: var(--navbar-icon-size) !important;
+}
+
+/* Hamburger is useless with an always-open nav — hide it */
 .navbar .navbar-toggler {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  margin: 0;
+  display: none !important;
 }
 
 /* IduAge-style sun / moon theme toggle (replaces Quarto toggle-on/off) */
@@ -179,8 +233,8 @@ a {
   background-color: currentColor !important;
   background-image: none !important;
   display: inline-block;
-  height: 1.2rem;
-  width: 1.2rem;
+  height: var(--navbar-icon-size);
+  width: var(--navbar-icon-size);
   content: "";
   -webkit-mask: url("brand/icon-sun.svg") center / contain no-repeat;
   mask: url("brand/icon-sun.svg") center / contain no-repeat;
@@ -618,6 +672,15 @@ body.quarto-dark .site-map-card h3,
   padding: 1.5rem;
 }
 
+.project-date {
+  color: var(--portfolio-muted);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: -0.15rem 0 0.85rem;
+}
+
 .project-feature .columns {
   align-items: center;
 }
@@ -653,6 +716,19 @@ body.quarto-dark .site-map-card h3,
   box-shadow: var(--portfolio-shadow);
   height: 1120px;
   width: 100%;
+}
+
+/* PDF iframe is not indexed; keep CV text in the DOM for site search */
+.cv-search-index {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .quarto-title-banner,
