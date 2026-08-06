@@ -1,7 +1,7 @@
 Andres Lanzos
 Biomedical Data Scientist | Translational Omics | Biomarker Discovery | ML Products
-Basel, Switzerland | Spanish citizen | Swiss C permit (2023-2033)
-andreslanzos@gmail.com | +41 77 265 81 61
+Basel, Switzerland | Spanish citizen
+andreslanzos@gmail.com
 LinkedIn Profile | Personal Website
 
 Summary

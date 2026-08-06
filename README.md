@@ -11,7 +11,7 @@ The site presents Andres's biomedical data-science profile, selected projects,
 articles, and CV. Career facts and metrics are synchronized with the canonical
 CV workspace; the reviewed website CV is stored at:
 
-`pdf/2026-07-18_Andres_Lanzos_CV_EN_Canonical_Option_C.pdf`
+`pdf/2026-08-04_Andres_Lanzos_CV_EN_Canonical_Option_C.pdf`
 
 ## Site map
 

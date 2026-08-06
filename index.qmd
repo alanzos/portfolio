@@ -33,7 +33,7 @@ comments: false
 ::: {.intro-copy}
 I am a PhD biomedical data scientist with **5+ years in Swiss biotech, pharma and healthtech** and **10+ years across industry and academia**. I take data-science projects from discovery to operational product, connecting scientific evidence with product design, data and cloud infrastructure, regulatory strategy, stakeholder negotiation, customer discovery and user testing.
 
-My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in **Basel, Switzerland**, and hold a Swiss C permit.
+My work spans target and biomarker discovery, translational multi-omics, clinical data and real-world data. I am based in **Basel, Switzerland**.
 :::
 
 ## On this website {.section-heading}

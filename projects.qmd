@@ -86,30 +86,6 @@ Accuracy and precision can be misleading when classes are imbalanced or when the
 :::
 :::
 
-## VitaTracer
-
-::: {.project-date}
-May 2023
-:::
-
-::: {.project-feature}
-::: {.columns}
-::: {.column width="58%"}
-### Making longitudinal laboratory results easier to understand
-
-I created [VitaTracer](https://andreslanzos.shinyapps.io/VitaTracer) after finding it difficult to compare blood and urine test results across time. The Shiny application summarizes laboratory measurements and makes longitudinal changes easier to inspect.
-
-The [source code is available on GitHub](https://github.com/alanzos/VitaTracer).
-
-**Focus:** R · Shiny · longitudinal data · health-data visualization
-:::
-
-::: {.column width="42%"}
-![VitaTracer longitudinal results interface](png/VitaTracer.png){.project-image}
-:::
-:::
-:::
-
 ## Investment-diversification explorer
 
 ::: {.project-date}
