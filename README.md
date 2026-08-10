@@ -119,3 +119,75 @@ IDUNOX_KOKORO_PYTHON=/Users/ALC/Git/idunox_investor_portal/.venv-kokoro/bin/pyth
 One-time setup for comments: install the
 [Giscus GitHub App](https://github.com/apps/giscus) on the `portfolio`
 repository (Discussions are already enabled).
+
+## Article subscriptions (RSS + Buttondown)
+
+Articles expose an RSS feed at `articles/index.xml` (enabled via
+`listing.feed` on `articles/index.qmd`). The Articles page also embeds a
+Buttondown signup form from `includes/subscribe.html`.
+
+Public newsletter page: <https://buttondown.com/andreslanzos>
+
+### One-time Buttondown setup
+
+1. Create a free Buttondown newsletter at <https://buttondown.com>.
+2. Choose username `andreslanzos`, or edit the form `action` URL in
+   `includes/subscribe.html` to match your username:
+   `https://buttondown.com/api/emails/embed-subscribe/<username>`.
+3. Publish/republish the site after any username change.
+
+Readers can follow the RSS feed directly. Email delivery stays on Free by
+creating drafts through the API when you publish (no paid RSS-to-email).
+
+### Announce a new article by email (Free plan)
+
+After the article is live on Quarto Pub, create a Buttondown draft from it:
+
+```bash
+# Preview payload only
+scripts/buttondown.sh announce articles/2026-08-10-disease-independent-clocks --dry-run
+
+# Create a draft (default; review in Buttondown, then publish there)
+scripts/buttondown.sh announce articles/2026-08-10-disease-independent-clocks
+
+# Create and send immediately
+scripts/buttondown.sh announce articles/2026-08-10-disease-independent-clocks --send
+```
+
+Typical publish sequence:
+
+```bash
+rm -rf _site
+quarto publish quarto-pub --no-prompt --no-browser
+scripts/buttondown.sh announce articles/<date-slug>
+```
+
+The script posts subject + description + TLDR + a link to the live article. It
+stores `metadata.portfolio_article=<slug>` so re-running is a no-op unless you
+pass `--force`. Default site base is
+`https://andreslanzos.quarto.pub/portfolio` (override with `--site-base` or
+`PORTFOLIO_SITE_BASE`).
+
+### API access (local agents / scripts)
+
+A dedicated API key labeled **Cursor agent · portfolio** is stored outside the
+repo (never commit it):
+
+```bash
+~/.config/portfolio/buttondown.env
+```
+
+Helper:
+
+```bash
+scripts/buttondown.sh ping
+scripts/buttondown.sh newsletter
+scripts/buttondown.sh subscribers
+scripts/buttondown.sh get emails?page_size=5
+scripts/buttondown.sh announce articles/<date-slug>
+```
+
+Auth header form: `Authorization: Token $BUTTONDOWN_API_KEY`  
+Docs: <https://docs.buttondown.com/api-authentication>
+
+Rotate or revoke the key at <https://buttondown.com/keys> if it leaks.

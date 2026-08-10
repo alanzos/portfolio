@@ -6,6 +6,11 @@
 .DS_Store
 _site
 /.quarto/
+.env
+.env.*
+*.env
+!**/.env.example
 
 **/*.quarto_ipynb
 .playwright-cli/
+desc-editor.yml

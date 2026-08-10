@@ -30,6 +30,9 @@ website:
       - href: resume.qmd
         text: CV
     right:
+      - icon: rss
+        href: articles/index.xml
+        aria-label: Articles RSS feed
       - icon: envelope
         href: mailto:andreslanzos@gmail.com
         aria-label: Email Andres Lanzos

@@ -11,8 +11,14 @@ listing:
   fields: [image, date, title, reading-time, description, categories]
   page-size: 12
   image-height: 220px
+  feed:
+    type: partial
+    title: "Andres Lanzos · Articles"
+    description: "Notes on biomarkers, prevention, ageing, and biomedical data science."
 page-layout: full
 comments: false
 ---
 
 Short notes on biomarkers, prevention, ageing, and biomedical data science.
+
+{{< include ../includes/subscribe.html >}}
