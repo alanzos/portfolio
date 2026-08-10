@@ -20,5 +20,3 @@ comments: false
 ---
 
 Short notes on biomarkers, prevention, ageing, and biomedical data science.
-
-{{< include ../includes/subscribe.html >}}

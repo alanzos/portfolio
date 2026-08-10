@@ -39,6 +39,7 @@ CV workspace; the reviewed website CV is stored at:
   portfolio focus ring is suppressed on the search input.
 - Homepage uses persistent navigation and footer for Projects, Articles, CV,
   email, LinkedIn, and GitHub. No separate CTA button rows in the page body.
+  The footer also links to Subscribe to my articles (Buttondown).
 - Projects stay on `projects.qmd` as featured case studies. Each project heading
   includes a date (or date range) for when it was made.
 - Articles live under `articles/<date-slug>/` as a Quarto listing of short notes
@@ -123,17 +124,16 @@ repository (Discussions are already enabled).
 ## Article subscriptions (RSS + Buttondown)
 
 Articles expose an RSS feed at `articles/index.xml` (enabled via
-`listing.feed` on `articles/index.qmd`). The Articles page also embeds a
-Buttondown signup form from `includes/subscribe.html`.
+`listing.feed` on `articles/index.qmd`). The site footer links to the
+Buttondown signup page next to LinkedIn and GitHub.
 
 Public newsletter page: <https://buttondown.com/andreslanzos>
 
 ### One-time Buttondown setup
 
 1. Create a free Buttondown newsletter at <https://buttondown.com>.
-2. Choose username `andreslanzos`, or edit the form `action` URL in
-   `includes/subscribe.html` to match your username:
-   `https://buttondown.com/api/emails/embed-subscribe/<username>`.
+2. Use username `andreslanzos`, or update the footer Subscribe link in
+   `_quarto.yml` to match.
 3. Publish/republish the site after any username change.
 
 Readers can follow the RSS feed directly. Email delivery stays on Free by
