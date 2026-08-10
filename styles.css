@@ -1159,3 +1159,116 @@ body.quarto-dark .gh-site-stat .gh-engagement-count,
   min-height: 12rem;
 }
 
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.portfolio-subscribe {
+  margin: 1.4rem 0 2rem;
+  max-width: 42rem;
+}
+
+.portfolio-subscribe__inner {
+  background:
+    linear-gradient(165deg, rgba(22, 125, 131, 0.08), transparent 55%),
+    var(--portfolio-soft);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.85rem;
+  padding: 1.15rem 1.2rem 1.05rem;
+}
+
+.portfolio-subscribe__title {
+  color: var(--portfolio-ink);
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+}
+
+.portfolio-subscribe__lede {
+  color: var(--portfolio-muted);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  margin: 0 0 0.9rem;
+}
+
+.portfolio-subscribe__form {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.portfolio-subscribe__input {
+  background: var(--portfolio-card);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.45rem;
+  color: var(--portfolio-ink);
+  flex: 1 1 14rem;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  min-width: 12rem;
+  padding: 0.62rem 0.8rem;
+}
+
+.portfolio-subscribe__input:focus-visible {
+  border-color: var(--portfolio-blue);
+  outline: 3px solid var(--portfolio-focus);
+  outline-offset: 2px;
+}
+
+.portfolio-subscribe__button {
+  background: var(--portfolio-navy);
+  border: 1px solid var(--portfolio-navy);
+  border-radius: 0.45rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.62rem 1rem;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.portfolio-subscribe__button:hover,
+.portfolio-subscribe__button:focus-visible {
+  background: var(--portfolio-blue);
+  border-color: var(--portfolio-blue);
+}
+
+.portfolio-subscribe__meta {
+  color: var(--portfolio-muted);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  margin: 0.75rem 0 0;
+}
+
+.portfolio-subscribe__meta a {
+  color: var(--portfolio-blue);
+}
+
+body.quarto-dark .portfolio-subscribe__inner,
+[data-bs-theme="dark"] .portfolio-subscribe__inner {
+  background:
+    linear-gradient(165deg, rgba(67, 192, 197, 0.12), transparent 55%),
+    var(--portfolio-soft);
+}
+
+body.quarto-dark .portfolio-subscribe__button,
+[data-bs-theme="dark"] .portfolio-subscribe__button {
+  background: var(--portfolio-teal);
+  border-color: var(--portfolio-teal);
+  color: #04181a;
+}
+

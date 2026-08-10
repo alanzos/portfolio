@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Andres Lanzos · Articles</title>
+<link>https://alanzos.github.io/portfolio/articles/</link>
+<atom:link href="https://alanzos.github.io/portfolio/articles/index.xml" rel="self" type="application/rss+xml"/>
+<description>Notes on biomarkers, prevention, ageing, and biomedical data science.</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Sun, 09 Aug 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>If a clock ignores disease, is it really a biological age clock?</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-08-10-disease-independent-clocks/</link>
+  <description><![CDATA[ Sensitivity to disease is often treated as confounding. For biological age, it may be the point. A clock with no relationship to health or disease risk is closer to a chronological clock. ]]></description>
+  <category>Ageing</category>
+  <category>Biomarkers</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-08-10-disease-independent-clocks/</guid>
+  <pubDate>Sun, 09 Aug 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-08-10-disease-independent-clocks/image.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>What does it mean to be 5 biological years older?</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-08-09-biological-age-gap/</link>
+  <description><![CDATA[ The most famous biological age clocks can all return an age in years. But those years do not mean the same thing. ]]></description>
+  <category>Ageing</category>
+  <category>Biomarkers</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-08-09-biological-age-gap/</guid>
+  <pubDate>Sat, 08 Aug 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-08-09-biological-age-gap/image.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>Age gap, age speed, and age acceleration are not the same thing</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-08-01-age-acceleration/</link>
+  <description><![CDATA[ High school physics explains why many biological age clocks use the word acceleration for what is really an age gap. ]]></description>
+  <category>Ageing</category>
+  <category>Biomarkers</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-08-01-age-acceleration/</guid>
+  <pubDate>Fri, 31 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-08-01-age-acceleration/image.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>Elevated Alzheimer’s biomarkers do not mean the prevention window is closed</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-07-26-alzheimer-diet-biomarkers/</link>
+  <description><![CDATA[ A Swedish cohort study suggests diet quality may still matter after blood biomarkers linked to Alzheimer’s pathology are already elevated. ]]></description>
+  <category>Biomarkers</category>
+  <category>Dementia</category>
+  <category>Nutrition</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-07-26-alzheimer-diet-biomarkers/</guid>
+  <pubDate>Sat, 25 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-07-26-alzheimer-diet-biomarkers/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Omega-3 supplementation did not improve cognition in a two-year trial</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-07-18-omega-3/</link>
+  <description><![CDATA[ A randomised DHA trial shows why association and causation are not the same thing for brain health claims. ]]></description>
+  <category>Causation</category>
+  <category>Dementia</category>
+  <category>Nutrition</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-07-18-omega-3/</guid>
+  <pubDate>Fri, 17 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-07-18-omega-3/image.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>A biomarker of disease risk is not the same as an intervention target</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-07-10-correlation-vs-causation/</link>
+  <description><![CDATA[ ATBC and SELECT show why a risk signal does not automatically become an actionable intervention. ]]></description>
+  <category>Biomarkers</category>
+  <category>Causation</category>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-07-10-correlation-vs-causation/</guid>
+  <pubDate>Thu, 09 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-07-10-correlation-vs-causation/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Reading routine blood data before invasive procedures</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-07-09-blood-test-women-cancer/</link>
+  <description><![CDATA[ An NHS AI blood-test trial for possible womb cancer shows how earlier risk routing can reduce unnecessary investigations. ]]></description>
+  <category>Biomarkers</category>
+  <category>Machine learning</category>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-07-09-blood-test-women-cancer/</guid>
+  <pubDate>Wed, 08 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-07-09-blood-test-women-cancer/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Your cancer risk rises with long sitting time</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-07-09-sitting-cancer-risk/</link>
+  <description><![CDATA[ A UK Biobank accelerometer study links prolonged uninterrupted sitting with higher cancer death hazard, without claiming causation. ]]></description>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-07-09-sitting-cancer-risk/</guid>
+  <pubDate>Wed, 08 Jul 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-07-09-sitting-cancer-risk/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Diagnostic test, screening test, and risk assessment tool are not interchangeable</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-04-22-diagnostic-screening-risk/</link>
+  <description><![CDATA[ Three terms that get mixed up in investor pitches, clinics, and science conversations, and why the distinction matters. ]]></description>
+  <category>Diagnostics</category>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-04-22-diagnostic-screening-risk/</guid>
+  <pubDate>Tue, 21 Apr 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-04-22-diagnostic-screening-risk/image.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Frontier open-source and open-weight LLMs should be heavily regulated</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-02-17-open-source-llms/</link>
+  <description><![CDATA[ Powerful model weights without control create a safety gap that policy cannot close fast enough. ]]></description>
+  <category>Opinion</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-02-17-open-source-llms/</guid>
+  <pubDate>Mon, 16 Feb 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-02-17-open-source-llms/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Injured during sport? Break up with RICE, and find some PEACE &amp; LOVE</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-01-22-peace-and-love/</link>
+  <description><![CDATA[ The BJSM PEACE & LOVE framework is a modern, evidence-aligned alternative to ice-and-rest for soft-tissue injuries. ]]></description>
+  <category>Sports medicine</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-01-22-peace-and-love/</guid>
+  <pubDate>Wed, 21 Jan 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-01-22-peace-and-love/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>If you want one health priority for 2026, make it fibre</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-01-18-fibre/</link>
+  <description><![CDATA[ Most adults miss fibre targets, yet higher intake tracks with lower mortality, cardiometabolic disease, and colorectal cancer risk. ]]></description>
+  <category>Nutrition</category>
+  <category>Prevention</category>
+  <category>Public health</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-01-18-fibre/</guid>
+  <pubDate>Sat, 17 Jan 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-01-18-fibre/image.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>Six of the worst modern pandemics share a common thread: animal exploitation</title>
+  <link>https://alanzos.github.io/portfolio/articles/2025-08-30-pandemics/</link>
+  <description><![CDATA[ Spillover history from COVID-19 to 1918 influenza, and why pandemic prevention starts with high-risk animal-human interfaces. ]]></description>
+  <category>Public health</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2025-08-30-pandemics/</guid>
+  <pubDate>Fri, 29 Aug 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2025-08-30-pandemics/image.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>How to know your Alzheimer’s risk</title>
+  <link>https://alanzos.github.io/portfolio/articles/2025-07-11-alzheimer-tests/</link>
+  <description><![CDATA[ A practical catalogue of DNA, blood, CSF, PET and MRI options with regulatory status, geography and approximate price. ]]></description>
+  <category>Biomarkers</category>
+  <category>Dementia</category>
+  <category>Diagnostics</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2025-07-11-alzheimer-tests/</guid>
+  <pubDate>Thu, 10 Jul 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2025-07-11-alzheimer-tests/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>43 million chronic-disease deaths in 2021, and most were preventable</title>
+  <link>https://alanzos.github.io/portfolio/articles/2025-07-08-ncd-deaths/</link>
+  <description><![CDATA[ WHO data on NCD deaths by region and country, after a question at the CSEM Startup Night. ]]></description>
+  <category>Prevention</category>
+  <category>Public health</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2025-07-08-ncd-deaths/</guid>
+  <pubDate>Mon, 07 Jul 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2025-07-08-ncd-deaths/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>People do want to know their Alzheimer’s risk</title>
+  <link>https://alanzos.github.io/portfolio/articles/2025-07-08-alzheimer-risk/</link>
+  <description><![CDATA[ Survey evidence, seven levers that can cut risk, and why earlier insight only helps if it opens a prevention conversation. ]]></description>
+  <category>Biomarkers</category>
+  <category>Dementia</category>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2025-07-08-alzheimer-risk/</guid>
+  <pubDate>Mon, 07 Jul 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2025-07-08-alzheimer-risk/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Vaccines can cut dementia risk by about 35%</title>
+  <link>https://alanzos.github.io/portfolio/articles/2025-06-vaccines-and-dementia/</link>
+  <description><![CDATA[ Routine adult vaccines look like a low-cost longevity play through trained immunity, pathogen control, and vascular protection. ]]></description>
+  <category>Dementia</category>
+  <category>Prevention</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2025-06-vaccines-and-dementia/</guid>
+  <pubDate>Sat, 14 Jun 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2025-06-vaccines-and-dementia/image.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Why I stopped using precision and accuracy for binary classification</title>
+  <link>https://alanzos.github.io/portfolio/articles/2023-01-19-mcc-phi-coefficient/</link>
+  <description><![CDATA[ Three failure modes for PPV, accuracy, F-score and Youden’s J, and why the Phi coefficient / Matthews correlation coefficient is more robust. ]]></description>
+  <category>Machine learning</category>
+  <category>Statistics</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2023-01-19-mcc-phi-coefficient/</guid>
+  <pubDate>Wed, 18 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2023-01-19-mcc-phi-coefficient/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>
