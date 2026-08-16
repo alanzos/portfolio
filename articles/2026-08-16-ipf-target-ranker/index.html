@@ -460,7 +460,7 @@ div.csl-indent {
 <p><strong>STRING neighborhood.</strong> Tabular geometry on the same protein network the GCN later uses <span class="citation" data-cites="szklarczyk2023string">[<a href="#ref-szklarczyk2023string" role="doc-biblioref">9</a>]</span>: how many neighbors are IPF-changed genes, whether the gene sits in a community of those genes, a network walk from them, centrality in IPF gene modules, and the same module idea seeded by genetics. The GCN still mixes those features along edges.</p>
 <p><strong>Perturbation.</strong> LINCS L1000 knockdown and overexpression connectivity versus the IPF DE signature <span class="citation" data-cites="subramanian2017lincs">[<a href="#ref-subramanian2017lincs" role="doc-biblioref">16</a>]</span>, and DepMap CRISPR essentiality averaged over lung cancer lines <span class="citation" data-cites="tsherniak2017depmap">[<a href="#ref-tsherniak2017depmap" role="doc-biblioref">17</a>]</span>. That last feature is a lung prior, not an IPF prior.</p>
 <p>The model input is those 18 features. The labels are a known-drug proxy: 139 genes with a clinical-stage mechanism of action (phase ≥ 1). Genes without that label stay unlabeled (positive-unlabeled ranking). I kept Open Targets clinical association out of the features; it defines the labels.</p>
-<p>The implementation for this freeze is private.</p>
+<p>The implementation for this freeze is at <a href="https://github.com/alanzos/ipf-target-ranker">github.com/alanzos/ipf-target-ranker</a>.</p>
 </section>
 <section id="methods" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="methods"><span class="header-section-number">3</span> Methods</h2>
