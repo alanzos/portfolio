@@ -128,6 +128,8 @@ Now you see why I stopped using Precision and Accuracy as performance metrics fo
 
 I invite you to use Phi Coefficient next time that you are benchmarking different methods for binary classification, like in differential abundance testing of proteomics data. You can relax and trust that the best method will not be a silly one like those presented in this article.
 
+You can find the R code in this [GitHub repository](https://github.com/alanzos/performance_metrics_for_binary_classification).
+
 ### Further reading
 
 - [The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-6413-7)

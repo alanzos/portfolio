@@ -106,7 +106,7 @@ I later developed [ExInAtor2](https://github.com/gold-lab/ExInAtor2), adding fun
 
 Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.
 
-[Read the article](articles/2023-01-19-mcc-phi-coefficient/).
+[Read the article](articles/2023-01-19-mcc-phi-coefficient/) or inspect the [reproducible code and examples on GitHub](https://github.com/alanzos/performance_metrics_for_binary_classification).
 
 **Focus:** model evaluation · imbalanced classification · statistical reasoning · technical communication
 :::
@@ -129,6 +129,8 @@ Accuracy and precision can be misleading when classes are imbalanced or when the
 ### Exploring concentration and diversification interactively
 
 This [Shiny application](https://andreslanzos.shinyapps.io/microwd_diversification/) explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.
+
+The [source code is available on GitHub](https://github.com/alanzos/microwd_diversification).
 
 **Focus:** R · Shiny · interactive analytics · financial data visualization
 :::
