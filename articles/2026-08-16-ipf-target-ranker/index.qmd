@@ -44,7 +44,7 @@ I used 18 public features, one row per gene. Each feature is numeric and rank-sc
 
 The model input is those 18 features. The labels are a known-drug proxy: 139 genes with a clinical-stage mechanism of action (phase ≥ 1). Genes without that label stay unlabeled (positive-unlabeled ranking). I kept Open Targets clinical association out of the features; it defines the labels.
 
-The implementation for this freeze is private.
+The implementation for this freeze is at [github.com/alanzos/ipf-target-ranker](https://github.com/alanzos/ipf-target-ranker).
 
 ## Methods
 

@@ -27,7 +27,7 @@ Pharma target identification ranks **genes**. I built a public PyTorch Geometric
 
 STRING-GCN recovers clinical mechanisms at AUPRC **0.32** (chance 0.03), beats an edgeless twin in 25/25 folds, and ties XGBoost.
 
-[Read the article](articles/2026-08-16-ipf-target-ranker/).
+[Read the article](articles/2026-08-16-ipf-target-ranker/). [Code](https://github.com/alanzos/ipf-target-ranker).
 
 **Focus:** PyTorch Geometric · gene ranking · leakage audit · AUPRC · STRING · IPF
 :::
