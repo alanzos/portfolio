@@ -5,6 +5,7 @@ listing:
   contents: .
   type: default
   sort: "date desc"
+  date-format: iso
   categories: true
   sort-ui: true
   filter-ui: true

@@ -12,10 +12,41 @@ comments: false
 
 The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.
 
+## IPF geometric target ranker
+
+::: {.project-date}
+2026-08-16
+:::
+
+::: {.project-feature}
+::: {.columns}
+::: {.column width="58%"}
+### Drug target identification for idiopathic pulmonary fibrosis (IPF)
+
+Pharma target identification ranks **genes**. I built a public PyTorch Geometric ranker for IPF: 4,283 Open Targets genes, 139 clinical-stage mechanisms as a proxy label, XGBoost versus a STRING GCN/GAT, with edgeless and permute-y controls.
+
+STRING-GCN recovers clinical mechanisms at AUPRC **0.32** (chance 0.03), beats an edgeless twin in 25/25 folds, and ties XGBoost.
+
+[Read the article](articles/2026-08-16-ipf-target-ranker/).
+
+**Focus:** PyTorch Geometric · gene ranking · leakage audit · AUPRC · STRING · IPF
+:::
+
+::: {.column width="42%"}
+::: {.light-content}
+![AUPRC comparison on the clean IPF ranker](png/ipf_target_ranker_auprc.png){.project-image}
+:::
+::: {.dark-content}
+![AUPRC comparison on the clean IPF ranker](png/ipf_target_ranker_auprc-dark.png){.project-image}
+:::
+:::
+:::
+:::
+
 ## 3D Protein Explorer
 
 ::: {.project-date}
-June 2022
+2022-06
 :::
 
 ::: {.project-feature}
@@ -65,7 +96,7 @@ I later developed [ExInAtor2](https://github.com/gold-lab/ExInAtor2), adding fun
 ## Evaluating binary classifiers beyond accuracy
 
 ::: {.project-date}
-January 2023
+2023-01-19
 :::
 
 ::: {.project-feature}
@@ -75,7 +106,7 @@ January 2023
 
 Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.
 
-[Read the article](articles/2023-01-19-mcc-phi-coefficient/) or inspect the [reproducible code and examples on GitHub](https://github.com/alanzos/performance_metrics_for_binary_classification).
+[Read the article](articles/2023-01-19-mcc-phi-coefficient/).
 
 **Focus:** model evaluation · imbalanced classification · statistical reasoning · technical communication
 :::
@@ -89,7 +120,7 @@ Accuracy and precision can be misleading when classes are imbalanced or when the
 ## Investment-diversification explorer
 
 ::: {.project-date}
-February 2023
+2023-02
 :::
 
 ::: {.project-feature}
@@ -98,8 +129,6 @@ February 2023
 ### Exploring concentration and diversification interactively
 
 This [Shiny application](https://andreslanzos.shinyapps.io/microwd_diversification/) explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.
-
-The [source code is available on GitHub](https://github.com/alanzos/microwd_diversification).
 
 **Focus:** R · Shiny · interactive analytics · financial data visualization
 :::

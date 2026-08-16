@@ -4,3 +4,6 @@ format:
     toc-depth: 2
     toc-location: right
     toc-title: On this page
+csl: ../csl/vancouver.csl
+link-citations: true
+

@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Infographic: using routine blood data and AI to triage possible womb cancer referrals"
 ---
 
-::: {.tldr}
-**TLDR.** An NHS AI blood-test trial aims to route fewer women into unnecessary womb-cancer investigations. Prevention has two jobs: act earlier, and route smarter when diagnostics are needed.
-:::
-
 ![Using routine blood data to transform women's health](image.jpg){fig-alt="Infographic on an NHS AI blood-test trial for possible womb cancer referrals, showing the issue, how routine blood markers plus AI estimate risk, and benefits including fewer unnecessary scans"}
 
 The next preventive-health breakthrough may be learning to read routine blood data before the system reaches for invasive procedures.

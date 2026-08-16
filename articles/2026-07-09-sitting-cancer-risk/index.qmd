@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Infographic on prolonged sitting and cancer risk"
 ---
 
-::: {.tldr}
-**TLDR.** In UK Biobank accelerometer data, longer uninterrupted sitting tracked with higher cancer-death hazard. That is a risk signal, not proof that sitting causes cancer.
-:::
-
 Your cancer risk rises with long sitting time.
 
 A new PLOS Medicine study followed 91,292 UK Biobank participants with wearable accelerometer data for a median of 12.38 years [1].

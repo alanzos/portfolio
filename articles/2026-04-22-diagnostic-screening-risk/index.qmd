@@ -7,10 +7,6 @@ image: image.jpeg
 image-alt: "Diagram separating diagnostic tests, screening tests, and risk assessment tools"
 ---
 
-::: {.tldr}
-**TLDR.** Diagnostic tests ask about disease now, screening asks who needs follow-up among people who feel well, and risk tools estimate future probability. Mixing them confuses evidence and product strategy.
-:::
-
 During my ongoing pitches to investors (VCs and angels), I have realized how much confusion there is around three terms: diagnostic test, screening test, and risk assessment tool.
 
 And to be fair, I suspect this is not limited to investors; many scientists and doctors also use them interchangeably.

@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "PEACE and LOVE injury recovery framework"
 ---
 
-::: {.tldr}
-**TLDR.** For acute soft-tissue injuries, PEACE & LOVE is a better evidence-aligned frame than default ice-and-rest RICE.
-:::
-
 Injured during sport or exercise? Break up with RICE, and find some PEACE & LOVE.
 
 For decades, RICE (Rest, Ice, Compression and Elevation) has been the default advice for sprains and strains. However, continuing to "ice it and rest" may actually slow recovery rather than support it. [1, 2, 3]

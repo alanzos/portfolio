@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Infographic: Alzheimer's risk testing options with relative cost"
 ---
 
-::: {.tldr}
-**TLDR.** A practical catalogue of DNA, blood, CSF, PET and MRI options for Alzheimer's risk and pathology. Almost everything is available in the US; very few options are easy to get in the UK and EU.
-:::
-
 ![Alzheimer's risk testing options](image.jpg){fig-alt="Infographic titled Alzheimer's Risk Testing Options (2025) listing DNA test, blood test, CSF test, PET scan, and MRI scan with relative cost markers"}
 
 How to know your Alzheimer's risk? Check the options below.

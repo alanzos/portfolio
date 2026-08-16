@@ -7,10 +7,6 @@ image: image.png
 image-alt: "Summary graphic for the DHA brain delivery trial"
 ---
 
-::: {.tldr}
-**TLDR.** A two-year DHA trial raised brain DHA without improving cognition or brain structure. Association is not causation, and target engagement is not clinical benefit.
-:::
-
 Omega-3 supplementation did not improve cognition or brain structure in a two-year study.
 
 This shows why association and causation are not the same thing.

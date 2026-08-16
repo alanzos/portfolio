@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Illustration separating risk detection, biological interpretation, and intervention evidence"
 ---
 
-::: {.tldr}
-**TLDR.** A risk biomarker is not automatically an intervention target. ATBC and SELECT show how acting on observational signals can harm.
-:::
-
 A biomarker of disease risk is not the same as an intervention target.
 
 Two cancer prevention trials make the point painfully clear [2, 6].

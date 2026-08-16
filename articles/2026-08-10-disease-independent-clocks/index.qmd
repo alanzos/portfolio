@@ -8,10 +8,6 @@ image-alt: "Infographic titled Biological Age Clock vs Chronological Age Clock, 
 draft: true
 ---
 
-::: {.tldr}
-**TLDR.** Asking which biological age clock is "least confounded by disease" sounds rigorous, but it can miss the point. Sensitivity to disease-related physiology is often a feature of a useful biological age measure, not a bug. A clock trained only to predict birthday age, with no relationship to health, morbidity or mortality, is scientifically interesting for forensics, age verification, unidentified remains, sample QC, wildlife ageing and archaeology. It is much less useful for prevention. Temporary illness and lasting deterioration are what we should separate, not ageing and disease biology.
-:::
-
 Someone recently asked a fair question about biological age clocks:
 
 **Which one is least confounded by diseases?**

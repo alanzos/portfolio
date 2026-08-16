@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Illustration comparing precision and accuracy"
 ---
 
-::: {.tldr}
-**TLDR.** Precision and accuracy can look great while a classifier is useless. The Phi coefficient / Matthews correlation coefficient stays honest across the failure modes that fool the rest.
-:::
-
 When dealing with a confusion matrix in a binary classification problem, we might get lost in the dozen performance metrics available, including the usual suspects:
 
 - False Positive Rate (FPR)
@@ -131,8 +127,6 @@ As you can see in the summary, PC is the only metric to correctly indicate poor 
 Now you see why I stopped using Precision and Accuracy as performance metrics for binary classification problems and moved to Phi Coefficient (PC).
 
 I invite you to use Phi Coefficient next time that you are benchmarking different methods for binary classification, like in differential abundance testing of proteomics data. You can relax and trust that the best method will not be a silly one like those presented in this article.
-
-You can find the R code in this [GitHub repository](https://github.com/alanzos/performance_metrics_for_binary_classification).
 
 ### Further reading
 

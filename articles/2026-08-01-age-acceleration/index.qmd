@@ -7,10 +7,6 @@ image: image.png
 image-alt: "Infographic comparing age gap, age speed, and age acceleration"
 ---
 
-::: {.tldr}
-**TLDR.** For many biological age clocks, "age acceleration" is really an age gap. DunedinPACE is closer to age speed. True acceleration is change in that speed over time.
-:::
-
 High school physics explains why the entire field of biological ageing may be using the word "acceleration" for the wrong thing.
 
 For many biological age clocks, "age acceleration" is used to describe the difference between predicted biological age and chronological age, or a residual after predicted age has been adjusted for chronological age [1, 2].

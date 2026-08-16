@@ -7,10 +7,6 @@ image: image.jpeg
 image-alt: "Illustration linking vaccines and dementia risk reduction"
 ---
 
-::: {.tldr}
-**TLDR.** Routine adult vaccines are linked to lower dementia risk, likely through trained immunity, pathogen control and vascular protection.
-:::
-
 In another chapter of the "weird but makes sense" files: vaccines can cut dementia risk by about 35%.
 
 Eric Topol's write-up maps the links between routine vaccines and dementia risk [1].

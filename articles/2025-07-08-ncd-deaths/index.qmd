@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Map of NCD deaths by WHO region"
 ---
 
-::: {.tldr}
-**TLDR.** 43 million people died from chronic diseases in 2021, and about 80% of those deaths are considered preventable. Here is the country and regional breakdown from WHO data.
-:::
-
 43 million people died from chronic diseases (like hypertension, cardiovascular disease, diabetes, kidney disease, or obesity) in 2021 [1].
 
 And 80% of those deaths are preventable by identifying and addressing modifiable risk factors such as smoking, poor diet, and physical inactivity [2].

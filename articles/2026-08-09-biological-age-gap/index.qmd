@@ -8,10 +8,6 @@ image-alt: "Infographic comparing what a +5 year age gap means across KDM, Pheno
 draft: true
 ---
 
-::: {.tldr}
-**TLDR.** Biological age clocks can produce surprisingly similar-looking results - 48 years, 55 years, +6 years - while measuring very different things. Some estimate the age at which your physiology would be typical. Some predict chronological age from DNA methylation. Others convert mortality-related information into an age scale. Before interpreting an age gap, you need to know what the clock was trained to predict.
-:::
-
 In a [previous note](../2026-08-01-age-acceleration/), I argued that many "age acceleration" scores are really age gaps: the difference between a clock age and chronological age, or a residual after adjusting clock age for chronological age.
 
 This follow-up asks a more practical question: if two people are both chronologically 50, and one clock returns 45 while another returns 55, what do those five-year gaps actually mean?

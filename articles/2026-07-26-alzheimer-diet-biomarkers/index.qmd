@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Infographic: elevated Alzheimer's biomarkers and diet still matter for dementia risk"
 ---
 
-::: {.tldr}
-**TLDR.** Elevated Alzheimer's blood biomarkers do not close the prevention window. In a Swedish cohort, higher-quality and lower-inflammatory diets still tracked with lower dementia risk, as observational associations.
-:::
-
 ![Elevated Alzheimer's biomarkers do not mean the prevention window is closed](image.jpg){fig-alt="Infographic summarizing a study of 1,865 adults where lower-inflammatory diet adherence tracked with 21 to 29 percent lower adjusted dementia hazard among people with elevated p-tau217, NfL, or GFAP"}
 
 Elevated Alzheimer's biomarkers do not mean the prevention window is closed.

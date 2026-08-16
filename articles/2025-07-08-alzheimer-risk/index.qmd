@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Graphic on Alzheimer's risk awareness and prevention levers"
 ---
 
-::: {.tldr}
-**TLDR.** Most people say they want to know their Alzheimer's risk. Earlier biomarkers plus seven evidence-backed lifestyle and clinical levers make knowing useful.
-:::
-
 Next time someone insists that people do not want to know their Alzheimer's risk, ask for their evidence, and then show them this.
 
 That is exactly what I will do, while swallowing my frustration, as it will be the 1,241,743,278th time I have heard that comment while pitching TrueYouOmics.

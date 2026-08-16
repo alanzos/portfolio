@@ -7,10 +7,6 @@ image: image.jpg
 image-alt: "Graphic on open-weight LLM risk and regulation"
 ---
 
-::: {.tldr}
-**TLDR.** Frontier open-source and open-weight LLMs should be treated like other high-consequence technologies: licensed access, controlled distribution, evaluation, and accountability.
-:::
-
 Open Source and Open Weight Large Language Models (LLMs) should be banned and heavily regulated. [1]
 
 Not because openness is "bad", but because releasing powerful model weights without control creates a safety gap that policy and law enforcement cannot close fast enough. [2]

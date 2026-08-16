@@ -7,10 +7,6 @@ image: image.png
 image-alt: "Infographic linking major pandemics to animal exploitation"
 ---
 
-::: {.tldr}
-**TLDR.** Six of the worst modern pandemics are linked to animal-human interfaces. Pandemic prevention starts by shrinking those high-risk contacts.
-:::
-
 Six of the worst ten pandemics in modern history share a common thread: animal exploitation. [1-6]
 
 ![Pandemics and animal exploitation](image.png){fig-alt="Infographic linking major pandemics to animal exploitation"}

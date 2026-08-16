@@ -44,8 +44,11 @@ CV workspace; the reviewed website CV is stored at:
   includes a date (or date range) for when it was made.
 - Articles live under `articles/<date-slug>/` as a Quarto listing of short notes
   adapted from LinkedIn posts. Keep the author's voice; strip platform chrome
-  (hashtags, "link in comments"); avoid em dashes. Each article starts with a
-  TLDR callout.
+  (hashtags, "link in comments"); avoid em dashes. Lead with the title and YAML
+  description; do not add a TLDR callout.
+- Write what the work **is**. Do not add disclaimer sentences or closing
+  sections whose job is to list what it is not ("not a clone", "not clinical
+  validation"). Scope belongs as a positive statement.
 - Typography: Source Serif 4 for long-form reading and titles; Source Sans 3 for
   navigation and metadata. Body measure targets about 66 characters.
 - CV page embeds the reviewed two-page Option C PDF with download and email
@@ -55,6 +58,8 @@ CV workspace; the reviewed website CV is stored at:
   that include to match. The leading underscore keeps Quarto from publishing it
   as its own page.
 - Prose avoids em dashes; date ranges retain their normal range punctuation.
+- One word per concept. Lock a short glossary (features, labels, genes, predictions) and use it in prose, tables, captions, and code. Do not mix synonyms (analogue scores / channels / columns / X) for variety. Keep a source's proper name (STRING combined score, Open Targets overall).
+- Citations use **Vancouver / NLM numeric** (citation-sequence): in-text `[1]`, numbered list at the end, ordered by first mention. New articles use BibTeX (`references.bib` next to `index.qmd`) plus `csl/vancouver.csl`. Cite load-bearing claims (epidemiology, trials, methods, databases); skip citations on the project's own CV numbers. Older notes may keep a hand-numbered list until they are edited.
 
 ## Local development
 
