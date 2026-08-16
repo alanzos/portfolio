@@ -10,7 +10,19 @@
 <atom:link href="https://alanzos.github.io/portfolio/articles/index.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on biomarkers, prevention, ageing, and biomedical data science.</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Fri, 31 Jul 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 15 Aug 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Drug target identification for idiopathic pulmonary fibrosis (IPF) via geometric deep learning on a knowledge graph</title>
+  <link>https://alanzos.github.io/portfolio/articles/2026-08-16-ipf-target-ranker/</link>
+  <description><![CDATA[ A STRING GCN recovers known clinical-stage idiopathic pulmonary fibrosis (IPF) targets at AUPRC 0.322, versus 0.305 for XGBoost and 0.098 for a GCN without edges. ]]></description>
+  <category>Machine learning</category>
+  <category>Target identification</category>
+  <category>Knowledge Graph</category>
+  <category>Neural Network</category>
+  <guid>https://alanzos.github.io/portfolio/articles/2026-08-16-ipf-target-ranker/</guid>
+  <pubDate>Sat, 15 Aug 2026 22:00:00 GMT</pubDate>
+  <media:content url="https://alanzos.github.io/portfolio/articles/2026-08-16-ipf-target-ranker/image.png" medium="image" type="image/png" height="216" width="144"/>
+</item>
 <item>
   <title>Age gap, age speed, and age acceleration are not the same thing</title>
   <link>https://alanzos.github.io/portfolio/articles/2026-08-01-age-acceleration/</link>

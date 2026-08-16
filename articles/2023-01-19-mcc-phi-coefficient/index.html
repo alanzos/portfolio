@@ -381,8 +381,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 19, 2023</p>
-    </div>
+      <p class="date">2023-01-19</p>
+            <p class="reading-time">8 min</p>
+          </div>
   </div>
   
     
@@ -393,9 +394,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="tldr">
-<p><strong>TLDR.</strong> Precision and accuracy can look great while a classifier is useless. The Phi coefficient / Matthews correlation coefficient stays honest across the failure modes that fool the rest.</p>
-</div>
 <p>When dealing with a confusion matrix in a binary classification problem, we might get lost in the dozen performance metrics available, including the usual suspects:</p>
 <ul>
 <li>False Positive Rate (FPR)</li>
@@ -505,7 +503,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As you can see in the summary, PC is the only metric to correctly indicate poor performance in all three situations shown above. All the other metrics like PPV, ACC, FS and YJS will incorrectly indicate good performance in at least one situation.</p>
 <p>Now you see why I stopped using Precision and Accuracy as performance metrics for binary classification problems and moved to Phi Coefficient (PC).</p>
 <p>I invite you to use Phi Coefficient next time that you are benchmarking different methods for binary classification, like in differential abundance testing of proteomics data. You can relax and trust that the best method will not be a silly one like those presented in this article.</p>
-<p>You can find the R code in this <a href="https://github.com/alanzos/performance_metrics_for_binary_classification">GitHub repository</a>.</p>
 </section>
 <section id="further-reading" class="level3">
 <h3 class="anchored" data-anchor-id="further-reading">Further reading</h3>

@@ -79,15 +79,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Selected Projects – Andres Lanzos">
 <meta property="og:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
-<meta property="og:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
+<meta property="og:image" content="https://alanzos.github.io/portfolio/png/ipf_target_ranker_auprc.png">
 <meta property="og:site_name" content="Andres Lanzos">
-<meta property="og:image:height" content="1478">
-<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="2469">
+<meta property="og:image:width" content="3765">
 <meta name="twitter:title" content="Selected Projects – Andres Lanzos">
 <meta name="twitter:description" content="Biomedical data science, scientific software and applied analytics projects by Andres Lanzos.">
-<meta name="twitter:image" content="https://alanzos.github.io/portfolio/png/protein_explorer.png">
-<meta name="twitter:image-height" content="1478">
-<meta name="twitter:image-width" content="1920">
+<meta name="twitter:image" content="https://alanzos.github.io/portfolio/png/ipf_target_ranker_auprc.png">
+<meta name="twitter:image-height" content="2469">
+<meta name="twitter:image-width" content="3765">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -323,7 +323,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Projects</h2>
    
   <ul>
-  <li><a href="#d-protein-explorer" id="toc-d-protein-explorer" class="nav-link active" data-scroll-target="#d-protein-explorer">3D Protein Explorer</a></li>
+  <li><a href="#ipf-geometric-target-ranker" id="toc-ipf-geometric-target-ranker" class="nav-link active" data-scroll-target="#ipf-geometric-target-ranker">IPF geometric target ranker</a></li>
+  <li><a href="#d-protein-explorer" id="toc-d-protein-explorer" class="nav-link" data-scroll-target="#d-protein-explorer">3D Protein Explorer</a></li>
   <li><a href="#exinator-and-exinator2" id="toc-exinator-and-exinator2" class="nav-link" data-scroll-target="#exinator-and-exinator2">ExInAtor and ExInAtor2</a></li>
   <li><a href="#evaluating-binary-classifiers-beyond-accuracy" id="toc-evaluating-binary-classifiers-beyond-accuracy" class="nav-link" data-scroll-target="#evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</a></li>
   <li><a href="#investment-diversification-explorer" id="toc-investment-diversification-explorer" class="nav-link" data-scroll-target="#investment-diversification-explorer">Investment-diversification explorer</a></li>
@@ -359,10 +360,46 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The projects below show how I approach scientific questions as products: define the decision, build a reproducible analytical core, make the result understandable, and create something that people can use.</p>
+<section id="ipf-geometric-target-ranker" class="level2">
+<h2 class="anchored" data-anchor-id="ipf-geometric-target-ranker">IPF geometric target ranker</h2>
+<div class="project-date">
+<p>2026-08-16</p>
+</div>
+<div class="project-feature">
+<div class="columns">
+<div class="column" style="width:58%;">
+<section id="drug-target-identification-for-idiopathic-pulmonary-fibrosis-ipf" class="level3">
+<h3 class="anchored" data-anchor-id="drug-target-identification-for-idiopathic-pulmonary-fibrosis-ipf">Drug target identification for idiopathic pulmonary fibrosis (IPF)</h3>
+<p>Pharma target identification ranks <strong>genes</strong>. I built a public PyTorch Geometric ranker for IPF: 4,283 Open Targets genes, 139 clinical-stage mechanisms as a proxy label, XGBoost versus a STRING GCN/GAT, with edgeless and permute-y controls.</p>
+<p>STRING-GCN recovers clinical mechanisms at AUPRC <strong>0.32</strong> (chance 0.03), beats an edgeless twin in 25/25 folds, and ties XGBoost.</p>
+<p><a href="articles/2026-08-16-ipf-target-ranker/">Read the article</a>.</p>
+<p><strong>Focus:</strong> PyTorch Geometric · gene ranking · leakage audit · AUPRC · STRING · IPF</p>
+</section>
+</div><div class="column" style="width:42%;">
+<div class="light-content">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/ipf_target_ranker_auprc.png" class="project-image img-fluid figure-img"></p>
+<figcaption>AUPRC comparison on the clean IPF ranker</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-content">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="png/ipf_target_ranker_auprc-dark.png" class="project-image img-fluid figure-img"></p>
+<figcaption>AUPRC comparison on the clean IPF ranker</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="d-protein-explorer" class="level2">
 <h2 class="anchored" data-anchor-id="d-protein-explorer">3D Protein Explorer</h2>
 <div class="project-date">
-<p>June 2022</p>
+<p>2022-06</p>
 </div>
 <div class="project-feature">
 <div class="columns">
@@ -418,7 +455,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="evaluating-binary-classifiers-beyond-accuracy" class="level2">
 <h2 class="anchored" data-anchor-id="evaluating-binary-classifiers-beyond-accuracy">Evaluating binary classifiers beyond accuracy</h2>
 <div class="project-date">
-<p>January 2023</p>
+<p>2023-01-19</p>
 </div>
 <div class="project-feature">
 <div class="columns">
@@ -426,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="choosing-metrics-that-match-biomedical-decisions" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-metrics-that-match-biomedical-decisions">Choosing metrics that match biomedical decisions</h3>
 <p>Accuracy and precision can be misleading when classes are imbalanced or when the costs of false positives and false negatives differ. I explored these failure modes and compared alternative evaluation approaches for biomedical classification.</p>
-<p><a href="articles/2023-01-19-mcc-phi-coefficient/">Read the article</a> or inspect the <a href="https://github.com/alanzos/performance_metrics_for_binary_classification">reproducible code and examples on GitHub</a>.</p>
+<p><a href="articles/2023-01-19-mcc-phi-coefficient/">Read the article</a>.</p>
 <p><strong>Focus:</strong> model evaluation · imbalanced classification · statistical reasoning · technical communication</p>
 </section>
 </div><div class="column" style="width:42%;">
@@ -443,7 +480,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="investment-diversification-explorer" class="level2">
 <h2 class="anchored" data-anchor-id="investment-diversification-explorer">Investment-diversification explorer</h2>
 <div class="project-date">
-<p>February 2023</p>
+<p>2023-02</p>
 </div>
 <div class="project-feature">
 <div class="columns">
@@ -451,7 +488,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="exploring-concentration-and-diversification-interactively" class="level3">
 <h3 class="anchored" data-anchor-id="exploring-concentration-and-diversification-interactively">Exploring concentration and diversification interactively</h3>
 <p>This <a href="https://andreslanzos.shinyapps.io/microwd_diversification/">Shiny application</a> explores diversification across my investments in Microwd. It translates portfolio composition into an interactive view designed to support clearer reasoning about concentration.</p>
-<p>The <a href="https://github.com/alanzos/microwd_diversification">source code is available on GitHub</a>.</p>
 <p><strong>Focus:</strong> R · Shiny · interactive analytics · financial data visualization</p>
 </section>
 </div><div class="column" style="width:42%;">
