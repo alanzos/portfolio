@@ -1,0 +1,31 @@
+---
+description: Vancouver numeric citations for portfolio articles.
+globs: articles/**/*.{qmd,bib}
+alwaysApply: false
+---
+
+# Citations
+
+Use **Vancouver / NLM numeric** (citation-sequence). In-text numbers, numbered list at the end. That is the biomedical default and matches existing notes such as the clocks article.
+
+Do not use APA/Harvard author-date in running text. Do not use MLA.
+
+## How
+
+Each article that cites sources:
+
+- `bibliography: references.bib` in the article YAML (file lives next to `index.qmd`)
+- Site CSL is already set in `articles/_metadata.yml` (`csl/vancouver.csl`)
+- Cite with Pandoc keys: `[@ley2011course]` or `[@kipf2017gcn; @velickovic2018gat]`. In-text form is square brackets (`[1]`), matching older hand-numbered notes.
+- End the article with:
+
+```markdown
+## References
+
+::: {#refs}
+:::
+```
+
+Cite load-bearing claims (epidemiology, trials, methods papers, databases). Skip citations on the project's own CV numbers.
+
+Older articles that already use a hand-numbered `[1]` list may keep that list until they are edited; new work uses BibTeX plus this CSL.

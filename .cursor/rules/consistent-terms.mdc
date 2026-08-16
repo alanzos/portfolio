@@ -1,0 +1,33 @@
+---
+description: One word per concept. Do not mix synonyms in prose, tables, code, or captions.
+alwaysApply: true
+---
+
+# Consistent terms
+
+Pick one name for each concept and use it everywhere in that project: prose, tables, figure captions, code, configs, and READMEs. Do not rotate synonyms for variety.
+
+```markdown
+<!-- Bad -->
+analogue scores, then channels, then columns, then X
+y, positives, MoA, labels
+node features vs gene features vs scores
+signal vs information vs lift
+
+<!-- Good -->
+features (the 18 inputs)
+labels (clinical-stage mechanisms)
+genes (what is ranked)
+predictions (model output)
+```
+
+Lock a short glossary when a piece of work starts. Example for gene ranking:
+
+| Concept | Use | Do not mix in |
+| --- | --- | --- |
+| Inputs | features | analogue scores, channels, columns (except real dataframe talk) |
+| Supervision | labels | y, positives, MoA (as the noun for the label) |
+| Ranking unit | genes | nodes (except one sentence on message passing) |
+| Model output | predictions | scores (except a proper name: STRING combined score, Open Targets overall) |
+
+If a source already named a field (STRING combined score, Open Targets overall), keep that proper name. Do not invent a parallel nickname beside it.

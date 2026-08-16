@@ -1,0 +1,26 @@
+---
+description: Write affirmatively. Say what a thing is, not what it is not.
+alwaysApply: true
+---
+
+# Affirmative prose
+
+In articles, project cards, READMEs, and other public copy, state what the work **is**.
+
+Do not use disclaimer sentences whose job is to list what the work is not.
+
+```markdown
+<!-- Bad -->
+Not a PandaOmics clone and not a novel-target claim.
+This is not clinical validation.
+Unlabeled genes are not confirmed negatives.
+
+<!-- Good -->
+Public features on Open Targets IPF genes.
+The labels are a known-drug proxy: clinical-stage mechanisms.
+Unlabeled genes stay unlabeled (PU ranking).
+```
+
+Allowed: ordinary contrast inside a result ("STRING-GCN beats edgeless"; "GCN ties XGBoost"). Forbidden: a closing section or sentence that exists only to wave off misreadings.
+
+If a limit matters, write it as a positive scope line ("one disease, public features, laptop compute"), not as "this is not X."
